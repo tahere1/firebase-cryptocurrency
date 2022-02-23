@@ -1,0 +1,37 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>فرم ثبت نام</mat-card-title>
+    </mat-card-header>
+    <form class="my-form" [formGroup]="userForm"  (ngSubmit)="onSubmit()" novalidate>
+      <!-- <mat-card-content> -->
+        <mat-form-field class="positionRight my-full-width">
+          <input matInput placeholder="نام" type="text" formControlName="firstname" required>
+          <mat-error>
+            {{errorName}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="positionRight my-full-width">
+          <input matInput placeholder="نام خانوادگی" type="text" formControlName="lastname" required>
+          <mat-error>
+            {{errorLastName}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="positionRight my-full-width">
+          <input matInput placeholder="نام کاربری" type="text" formControlName="username" required>
+          <mat-error>
+            {{errorUsername}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="positionRight my-full-width">
+          <input matInput placeholder="رمز عبور" type="text" formControlName="password" required>
+          <mat-error>
+            {{errorPassword}}
+          </mat-error>
+        </mat-form-field>
+        
+      <!-- </mat-card-content> -->
+      <button mat-stroked-button color="primary" class="btn-block" type="submit" [disabled]="!userForm.valid" >ثبت</button>
+    </form>
+  </mat-card>
+</div>

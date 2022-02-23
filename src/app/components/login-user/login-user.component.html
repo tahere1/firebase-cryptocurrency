@@ -1,0 +1,19 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>فرم ورود</mat-card-title>
+      </mat-card-header>
+      <form class="my-form" [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+        <mat-card-content>
+          <mat-form-field class="positionRight my-full-width">
+            <input matInput placeholder="نام کاربری" style="float: right;" formControlName="username" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="positionRight my-full-width">
+            <input matInput placeholder="رمز عبور" type="password" formControlName="password" required>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="primary" class="btn-block" type="submit" [disabled]="!loginForm.valid">ورود</button>
+      </form>
+    </mat-card>
+</div>

@@ -1,0 +1,82 @@
+.mainDiv{
+    padding: 5%;
+    margin: 3%;
+    /* max-width :98%; */
+    border: 3px dashed black;
+    border-radius: 15px;
+    background-color: rgb(233, 226, 240);
+}
+
+@media (min-width: 1024px) { 
+  .mainDiv {
+    padding: 5%;
+    margin: 3%;
+  }
+} 
+@media (max-width: 1023px) and (min-width: 768px) {
+  .mainDiv {
+    padding: 5%;
+    margin: 3%;
+  }
+} 
+@media (max-width: 767px) {
+  .mainDiv {
+    padding: 2%;
+    margin: 2%;
+  }
+}
+
+/* ---------------- toolbar css------------------------ */
+mat-toolbar{ 
+    /* background-color: rgb(77, 99, 141) !important;  */
+    background-color: rgb(94, 38, 146) !important;
+}
+.myMenue{
+    font-family: 'Yekan'!important;
+    /* color: white; */
+    text-decoration: none;
+}
+
+/* ------------------------- table css ----------------------------- */
+/* @media screen and (max-width: 960px) {
+    .mat-table {
+      border: 0;
+      vertical-align: middle
+    }
+  
+    .mat-table caption {
+      font-size: 1em;
+    }
+  
+    .mat-table .mat-row {
+      border-bottom: 5px solid #ddd;
+      display: block;
+    }
+    
+    .mat-table .mat-cell {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: 1em;
+      text-align: right;
+      font-weight: bold;
+      height:30px;
+      margin-bottom: 4%;
+    }
+    .mat-table .mat-cell:before {
+    
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      font-weight: normal;
+      
+      font-size: .85em;
+    }
+    .mat-table .mat-cell:last-child {
+      border-bottom: 0;
+    }
+      .mat-table .mat-cell:first-child {
+      margin-top: 4%;
+    }
+    
+   
+} */

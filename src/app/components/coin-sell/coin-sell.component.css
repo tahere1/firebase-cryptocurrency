@@ -1,0 +1,15 @@
+span {
+    font-weight: bolder;
+    color: black;
+}
+.price{ 
+    color: brown;
+    font-size: larger;
+}
+mat-card-header{
+    padding-bottom: 15px;
+}
+
+.positionRight{
+    text-align: right;
+}

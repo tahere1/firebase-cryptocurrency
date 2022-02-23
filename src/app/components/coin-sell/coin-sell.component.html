@@ -1,0 +1,29 @@
+<!-- <mat-card ></mat-card> -->
+
+<mat-card-header>
+    <mat-card-title>فروش &nbsp;
+        {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
+    </mat-card-title>
+</mat-card-header>
+<mat-card-content>
+    <p class="price">قیمت (تومان) :
+         <span>{{coinData.priceToman | number : '1.0-0'}}</span> 
+    </p>
+    <p class="price">تعداد رمز ارز برای فروش : 
+        <span>{{totalUserCoin}}</span> 
+    </p>
+    <p class="price">محاسبه مبلغ دریافتی(تومان) از فروش : 
+        <br/><span>{{totalCoinPrice | number : '1.0-0'}}</span>
+    </p>
+    <form class="my-form" [formGroup]="SellForm"  (ngSubmit)="onSubmitSell()" novalidate>
+        <mat-form-field class="positionRight my-full-width">
+            <input (keyup)="updateInutCoins($event)" matInput placeholder="تعداد رمز ارز برای فروش را در این قسمت وارد نمایید" type='number' formControlName="buyCrypto" required>
+            <mat-error>
+                شما فقط {{totalUserCoin}} رمزارز برای فروش دارید.
+            </mat-error>
+        </mat-form-field>
+        <button mat-stroked-button color="primary" class="btn-block" type="submit" [disabled]="!SellForm.valid">فروش</button>
+
+    </form>
+</mat-card-content>
+

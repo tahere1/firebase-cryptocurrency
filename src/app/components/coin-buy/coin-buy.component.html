@@ -1,0 +1,60 @@
+<!-- <div class="mainContent row" >
+</div>
+ -->
+
+<div class="items">
+    <!-- ------------------------------------------------------------------- -->
+    <!-- buy coin : -->
+    <div class="item">
+        <div *ngIf="coinData">
+            <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center"  >
+                <mat-card class="box">
+                    <mat-card-header>
+                        <mat-card-title>خرید &nbsp;
+                            {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="price">قیمت (تومان) : <span>{{coinData.priceToman | number : '1.0-0'}}</span> </p>
+                        <p class="price">قیمت (دلار) : <span>{{coinData.price}}</span> </p>
+                        <div *ngIf="userIsLoggedIn">
+                            <p class="price">محاسبه تعداد رمز ارز دریافتی : <span>{{totalPrice / coinData.priceToman}}</span></p>
+                            <form class="my-form" [formGroup]="PriceForm"  (ngSubmit)="onSubmitPrice()" novalidate>
+                                <mat-form-field class="positionRight my-full-width">
+                                    <input (keyup)="updatePrice($event)" matInput placeholder="مبلغ پرداختی (به تومان) را در این قسمت وارد نمایید" type='number' formControlName="buyCrypto" required>
+                                    <mat-error>
+                                        مبلغ کمتر از 10000 تومان مورد قبول نمی باشد
+                                    </mat-error>
+                                </mat-form-field>
+                                <button mat-stroked-button color="primary" class="btn-block" type="submit" [disabled]="!PriceForm.valid">خرید</button>
+    
+                            </form>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------------------------------------- -->
+    <!-- sell coin : -->
+    <div class="item">
+        <div *ngIf="coinData">
+            <div class="login-wrapper" fxLayout="row"  fxLayoutAlign="center" >
+                <mat-card class="box">
+                    <div *ngIf="userIsLoggedIn">
+                        <app-coin-sell></app-coin-sell>
+                    </div>
+                    <div *ngIf="!userIsLoggedIn">
+                        <p>لطفا به حساب کاربری خود وارد شوید.</p>
+                        <app-login-user></app-login-user>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="border-top: 1px solid black; padding:5px ; margin: 5px;">
+    <app-transactions-list></app-transactions-list>
+</div>
