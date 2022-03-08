@@ -2,37 +2,33 @@
     padding: 20px;
     margin: 20px;
 }
-
-/* .row {
-    display: flex;
-}
-  
-.column {
-    flex: 50%;
-} */
 span {
     font-weight: bolder;
     color: black;
 }
 .price{ 
-    color: brown;
+    color: #950740;;
     font-size: larger;
+    font-weight: bolder;
 }
 mat-card-header{
-    padding-bottom: 15px;
+    padding: 12px;
+    color: white;
+    background-color: rgb(41, 40, 40) ;
 }
-
+.myPadding {
+  padding-top: 17px !important;
+}
 .positionRight{
     text-align: right;
 }
-
-/* @media screen and (max-width: 600px) {
-    .column {
-        width: 100%;
-    }
-} */
+.mySubmitBtn {
+  width:40%;
+  margin-left:30%;
+  margin-right:30%;
+}
 /* --------------------------------------------------------- */
-.items {
+/* .items {
 	display: flex;
 	flex-wrap: wrap;
 	margin-left: -10px;
@@ -46,19 +42,19 @@ mat-card-header{
 	margin-left: 10px;
 	margin-top: 10px;
 }
-@media (min-width: 1024px) { /* desktop */
+@media (min-width: 1024px) { 
   .items .item {
     max-width: calc(50% - 10px);
   }
 } 
-@media (max-width: 1023px) and (min-width: 768px) { /* tablet */
+@media (max-width: 1023px) and (min-width: 768px) { 
   .items .item {
     max-width: calc(100% - 10px);
   }
 } 
-@media (max-width: 767px) {  /* mobile */ 
+@media (max-width: 767px) {  
   .items .item {
     max-width: calc(100% - 10px);
   }
-}
+} */
 

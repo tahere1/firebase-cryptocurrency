@@ -6,23 +6,24 @@
     </mat-card-title>
 </mat-card-header>
 <mat-card-content>
-    <p class="price">قیمت (تومان) :
+    <p class="price myPadding">قیمت (تومان) :
          <span>{{coinData.priceToman | number : '1.0-0'}}</span> 
     </p>
     <p class="price">تعداد رمز ارز برای فروش : 
         <span>{{totalUserCoin}}</span> 
     </p>
     <p class="price">محاسبه مبلغ دریافتی(تومان) از فروش : 
-        <br/><span>{{totalCoinPrice | number : '1.0-0'}}</span>
+        <span>{{totalCoinPrice | number : '1.0-0'}}</span>
     </p>
     <form class="my-form" [formGroup]="SellForm"  (ngSubmit)="onSubmitSell()" novalidate>
-        <mat-form-field class="positionRight my-full-width">
+        <mat-form-field class="positionRight w90">
             <input (keyup)="updateInutCoins($event)" matInput placeholder="تعداد رمز ارز برای فروش را در این قسمت وارد نمایید" type='number' formControlName="buyCrypto" required>
             <mat-error>
                 شما فقط {{totalUserCoin}} رمزارز برای فروش دارید.
             </mat-error>
         </mat-form-field>
-        <button mat-stroked-button color="primary" class="btn-block" type="submit" [disabled]="!SellForm.valid">فروش</button>
+        <!-- <br> -->
+        <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!SellForm.valid">فروش</button>
 
     </form>
 </mat-card-content>

@@ -1,12 +1,3 @@
-/* div {
-     padding:3% 20%;
-} */
-.title {
-    color: black;
-    font-size: large;
-    font-weight: bolder;
-}
-
 table
 { 
     width: 100%; 
@@ -14,8 +5,7 @@ table
 }
 th.mat-header-cell { 
     text-align: center !important;
-    /* background-color: rgb(107, 133, 156); */
-    background-color: rgb(94, 38, 146) ;
+    background-color: rgb(41, 40, 40) ;
     color: white;
     font-weight: bold;
     font-size:medium;
@@ -28,6 +18,11 @@ td {
     font-weight: bold;
   }
 
+.myButton{
+    background-color: #950740;
+    color: white;
+    border-radius: 5px;
+}
 
 @media (min-width: 1024px) { /* desktop */
     /* table { width: 100%;} */
@@ -76,7 +71,7 @@ td {
         word-break: break-word; 
    }
    th.mat-header-cell { 
-       font-size:5px;
+       font-size:3px;
    }
    td {
        font-weight:normal;

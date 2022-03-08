@@ -1,43 +1,49 @@
 <!-- Toolbar --> 
 
-<div style="height: 85vh;">
-
-  <mat-toolbar color="primary" mat-scroll-shrink>
+<div >
+  <mat-toolbar>
+    <!-- <div [ngStyle.sm]="{'font-size.px': 5, color: 'blue'}"
+    [ngStyle.xs]="{'font-size.px': 10, color: 'red'}"
+    > -->
     <div fxShow="true" fxHide.lt-md="true">
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-      <a mat-button href="/">صفحه اصلی</a>
-     <a mat-button routerLink="/transactions-list">لیست معاملات </a>
-     <a mat-button *ngIf="!userisLoggedIn" routerLink="/login">ورود به حساب کاربری</a>
-     <a mat-button *ngIf="userisLoggedIn" (click) = "logout()" href="/">خروج از حساب کاربری</a>
-     <a mat-button *ngIf="!userisLoggedIn" routerLink="/register">ثبت نام در سایت</a>
-     <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list">کاربر : {{username}}</a>
-
+      <a mat-button href="/"><mat-icon>home</mat-icon>&nbsp;صفحه اصلی</a>
+      <a mat-button routerLink="/transactions-list"><mat-icon>list</mat-icon>&nbsp;لیست معاملات</a>
+      <a mat-button *ngIf="!userisLoggedIn" routerLink="/login"><mat-icon>account_box</mat-icon>&nbsp;ورود به حساب کاربری</a>
+      <a mat-button *ngIf="userisLoggedIn" (click) = "logout()" href="/"><mat-icon>exit_to_app</mat-icon>&nbsp;خروج از حساب کاربری</a>
+      <a mat-button *ngIf="!userisLoggedIn" routerLink="/register"><mat-icon>person_add</mat-icon>&nbsp;ثبت نام در سایت</a>
+      <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list"><mat-icon>person</mat-icon>&nbsp;کاربر : {{username}}</a>
     </div>
-
     <div fxShow="true" fxHide.gt-sm="true">
-      <a  mat-button mat-raised-button  (click)="sidenav.open()" class="myMenue">منو</a>
-      <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list">کاربر : {{username}}</a>
+      <a mat-button href="/" class="tooltip">
+        <mat-icon>home</mat-icon>
+        <span class="tooltiptext">صفحه اصلی</span>
+      </a>
+      <a mat-button routerLink="/transactions-list" class="tooltip">
+        <mat-icon>list</mat-icon>
+        <span class="tooltiptext">لیست معاملات</span>
+      </a>
+      <a mat-button *ngIf="!userisLoggedIn" routerLink="/login" class="tooltip">
+        <mat-icon>account_box</mat-icon>
+        <span class="tooltiptext">ورود به حساب</span>
+      </a>
+      <a mat-button *ngIf="userisLoggedIn" (click) = "logout()" href="/" class="tooltip">
+        <mat-icon>exit_to_app</mat-icon>
+        <span class="tooltiptext">خروج از حساب</span>
+      </a>
+      <a mat-button *ngIf="!userisLoggedIn" routerLink="/register" class="tooltip">
+        <mat-icon>person_add</mat-icon>
+        <span class="tooltiptext">ثبت نام</span>
+      </a>
+      <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list" class="tooltip">
+        <mat-icon>person</mat-icon>{{username}}
+        <span class="tooltiptext">کاربر {{username}}</span>
+      </a>
     </div>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlexFill class="example-container">
-    <mat-sidenav #sidenav fxLayout="column">
-      <div fxLayout="column">
-        <a (click)="sidenav.close()" mat-button>بستن منو</a>
-        <a mat-button href="/">صفحه اصلی</a>
-        <a mat-button routerLink="/transactions-list">لیست معاملات </a>
-        <a mat-button *ngIf="userisLoggedIn" (click) = "logout()" href="/">خروج از حساب کاربری</a>
-        <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list">نام کاربری : {{username}}</a>
-        <a mat-button *ngIf="!userisLoggedIn" routerLink="/login">ورود به حساب کاربری</a>
-        <a mat-button *ngIf="!userisLoggedIn" routerLink="/register">ثبت نام در سایت</a>
-        
-      </div>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>
-      <div class="mainDiv">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    <div class="mainDiv">
+      <router-outlet></router-outlet>
+    </div>
 </div>
 

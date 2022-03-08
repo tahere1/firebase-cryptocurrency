@@ -1,6 +1,5 @@
 <div >
-<h2 class="title">لیست رمز ارزها</h2>
-
+<h1 class="mainTitle">لیست رمز ارزها</h1>
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" 
 	matSort #empTbSort="matSort" (matSortChange)="sortData(dataSource)">
 		<ng-container matColumnDef="symbol">
@@ -16,20 +15,20 @@
 			<td mat-cell *matCellDef="let item"> {{item.coinNameFa}} </td>
 		</ng-container>
 		<ng-container matColumnDef="price">
-			<th mat-header-cell *matHeaderCellDef mat-sort-header> قیمت (دلار) </th>
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>قیمت</th>
 			<td mat-cell *matCellDef="let item"> {{item.price | currency}} </td>
 		</ng-container>
 		<ng-container matColumnDef="priceToman">
-			<th mat-header-cell *matHeaderCellDef mat-sort-header > قیمت (تومان) </th>
+			<th mat-header-cell *matHeaderCellDef mat-sort-header > قیمت (T) </th>
 			<td mat-cell *matCellDef="let item"> {{item.priceToman | number : '1.0-0'}} </td>
 		</ng-container>
 		<ng-container matColumnDef="buy">
 			<th mat-header-cell *matHeaderCellDef>خرید و فروش </th>
 			<td mat-cell *matCellDef="let item" >
-				 <button (click)="getRecord(item)">خرید / فروش</button> 
+				 <button (click)="getRecord(item)" class="myButton">خرید / فروش</button> 
 			</td>
 		</ng-container>
-		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
 		<!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr> -->
 		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

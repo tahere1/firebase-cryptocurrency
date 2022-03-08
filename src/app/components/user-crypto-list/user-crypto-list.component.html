@@ -1,5 +1,5 @@
 <div>
-    <h2 class="title">لیست رمز ارزهای کاربر {{userName}}</h2>
+    <h1 class="mainTitle">لیست رمز ارزهای کاربر {{userName}}</h1>
     <div *ngIf="userCoinsData">
         <table mat-table [dataSource]="transformedBody" class="mat-elevation-z8">
             <ng-container matColumnDef="symbol">
@@ -10,7 +10,7 @@
                 <th mat-header-cell *matHeaderCellDef>مقدار رمز ارز</th>
                 <td mat-cell *matCellDef="let item"> {{userCoinsData[item].getCoin }}</td>
             </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>  
     </div> 

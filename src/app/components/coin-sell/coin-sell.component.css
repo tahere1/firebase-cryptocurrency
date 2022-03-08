@@ -3,13 +3,24 @@ span {
     color: black;
 }
 .price{ 
-    color: brown;
+    color: #950740;;
     font-size: larger;
+    font-weight: bolder;
 }
 mat-card-header{
-    padding-bottom: 15px;
+    padding: 12px;
+    color: white;
+    background-color:rgb(41, 40, 40) ;
 }
 
+.myPadding {
+    padding-top: 17px !important;
+}
 .positionRight{
     text-align: right;
+}
+.mySubmitBtn {
+    width:40%;
+    margin-left:30%;
+    margin-right:30%;
 }

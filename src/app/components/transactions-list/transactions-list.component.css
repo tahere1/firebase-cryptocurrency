@@ -1,112 +1,64 @@
 
-table
-{ 
-   width: 100%; 
-   text-align: center; 
-   /* margin: 10px; */
-   padding: 10px;
-}
-th.mat-header-cell { 
-   text-align: center !important;
-   background-color:  rgb(94, 38, 146) ;
-   color: white;
-   font-size:medium;
-}
-th.mat-sort-header-sorted {
-   /* color: black; */
-   color: white;
-}
-td {
-   font-weight: bold;
- }
- /* --------------------------------------------------- */
+ /* --------------------------- search ------------------------------- */
  .searchBox{
   text-align: right;
-   background-color: white;
-   border: 1px dashed  rgb(94, 38, 146);
-   border-radius: 10px;
-   padding: 2%;
-   margin: 3%;
-   min-width: 40% !important;
-   line-height: normal;
+  width: 50%;
  }
-/* -------------------------------------------------------- */
-.items {
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: -10px;
-	margin-top: -10px;
-}
-.items .item {
-	flex: 1 0 200px;
-  box-sizing: border-box;
-  /* background: #e0ddd5; */
-  color: #171e42;
-  padding: 10px;
-	margin-left: 10px;
-	margin-top: 10px;
-}
-@media (min-width: 1024px) { /* desktop */
-  .items .item {
-    max-width: calc(50% - 10px);
-  }
-} 
-@media (max-width: 1023px) and (min-width: 768px) { /* tablet */
-  .items .item {
-    max-width: calc(100% - 10px);
-  }
-} 
-@media (max-width: 767px) {  /* mobile */ 
-  .items .item {
-    max-width: calc(100% - 10px);
-  }
-}
+ .FullWidthSearchBox{
+   width: 100%;
+ }
+ /* --------------------------------------------------------------- */
+ .mainContainer{
+   padding-top: 2%;
+ }
 
 /* ---------------------- table ------------------------------------------ */
-
-table
-{ 
-    width: 100%; 
-    text-align: center; 
-}
 th.mat-header-cell { 
-    text-align: center !important;
-    /* background-color: rgb(107, 133, 156); */
-    background-color: rgb(94, 38, 146) ;
-    color: white;
-    font-weight: bold;
-    font-size:medium;
+   text-align: center !important;
+   background-color:  rgb(41, 40, 40) ;
+   color: white;
+   font-size:small;
 }
 th.mat-sort-header-sorted {
-    color: rgb(173, 62, 62);
+   color: white;
+}
+td {
+   font-size: 15px;
+ }
+table
+{ 
+  padding: 3px;
+  overflow-wrap: anywhere;
+  width: 100%; 
+  text-align: center; 
 }
 
-td {
-    font-weight: bold;
-  }
+.table-container {
+  width: 100%;
+  max-height: 250px !important;
+  overflow: auto;
+}
 
+/* ---------------------------- table media ------------------------------------- */
 
-@media (min-width: 1024px) { /* desktop */} 
-@media (max-width: 1023px) and (min-width: 768px) { /* tablet */
+@media (max-width: 1023px) and (min-width: 768px) { 
     .mat-cell, .mat-header-cell {    
          overflow: hidden;    
         text-overflow: ellipsis;   
-        word-break: break-word; 
     }
     th.mat-header-cell { 
-        font-size: xx-small;
+        font-size: 15px;
     }
     td {
         font-weight:normal;
-        font-size: xx-small;
+        font-size: 15px;
     }
 
 } 
-@media (max-width: 767px) and (min-width: 410px) {  /* mobile */ 
+@media (max-width: 767px) and (min-width: 410px) {   
     .mat-cell, .mat-header-cell {    
         overflow: hidden;    
         text-overflow: ellipsis;   
-        word-break: break-word; 
    }
    th.mat-header-cell { 
        font-size:8px;
@@ -116,18 +68,15 @@ td {
        font-weight:normal;
        font-size:8px;
     }
-
 }
-@media (max-width: 409px) {  /* mobile */ 
+@media (max-width: 409px) {  
     .mat-cell, .mat-header-cell {    
-        overflow: hidden;    
+        overflow: hidden; 
         text-overflow: ellipsis;   
-        word-break: break-word; 
    }
    th.mat-header-cell { 
        font-size:5px;
        font-weight:normal;
-       padding: 1%;
    }
    td {
        font-weight:normal;
