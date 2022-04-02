@@ -17,10 +17,11 @@ html, body {
 body { 
     margin-bottom: 5% !important;
     min-height: 100vh;
-    background: url(assets/image/crypto-bg.jpg);
-    background-repeat: repeat;
+    background-color: #d5e9d0;
+    /* background: url(assets/image/crypto-bg.jpg); */
+    /* background-repeat: repeat;
     background-position: right top;
-    background-attachment: scroll;
+    background-attachment: scroll; */
 }
 .material-icons{
   font-family: 'Material Icons' !important;
