@@ -3,15 +3,21 @@ span {
     color: black;
 }
 .price{ 
-    color: #950740;;
-    font-size: larger;
+    color: #11704d;
     font-weight: bolder;
 }
 mat-card-header{
-    padding: 12px;
-    color: white;
-    background-color:rgb(41, 40, 40) ;
+    padding: 1vw;
+    color: black;
+    border: 6px solid #08583b;
+    border-bottom: 6px double #08583b;
+    border-right: 6px double #08583b;
 }
+mat-card-title{
+    font-size: calc(0.6em + 1vw) !important;
+    line-height: calc(0.8em + 0.5vw) !important;
+}
+
 
 .myPadding {
     padding-top: 17px !important;
@@ -23,4 +29,5 @@ mat-card-header{
     width:40%;
     margin-left:30%;
     margin-right:30%;
+    font-size: calc(0.4em + 1vw) !important;
 }

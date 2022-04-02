@@ -4,6 +4,8 @@ import { Users } from '../shared/users';
 import { Observable} from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { getDatabase, ref, child, set, get} from "firebase/database";
+import {MatDialog , MatDialogConfig} from "@angular/material/dialog";
+import { DialogBodyComponent } from 'src/app/components/dialog/dialog-body/dialog-body.component';
 
 
 @Injectable({
@@ -11,7 +13,7 @@ import { getDatabase, ref, child, set, get} from "firebase/database";
 })
 export class FirebaseService {
 
-  constructor(private afDb: AngularFireDatabase) { }
+  constructor(private afDb: AngularFireDatabase,private dialog: MatDialog) { }
 
   writeUserData(user: Users ) {
     const db = getDatabase();
@@ -30,7 +32,17 @@ export class FirebaseService {
           if (snapshot.exists()) {
               observer.next(snapshot.val());
           } else {
-            alert("نام کاربری خود را به درستی وارد نمایید.");
+            // alert("نام کاربری خود را به درستی وارد نمایید.");
+            const dialogConfig = new MatDialogConfig();
+          dialogConfig.data = { 
+            dialogTitle: "ورود به حساب کاربری",
+            dialogContent : "لطفا نام کاربری خود را به درستی وارد نمایید.",
+            dialogAccept: false
+          };
+          dialogConfig.direction = 'rtl';
+          dialogConfig.width="50%";
+          this.dialog.open(DialogBodyComponent, dialogConfig);
+
           }
         }).catch((error) => {
           // console.error(error);

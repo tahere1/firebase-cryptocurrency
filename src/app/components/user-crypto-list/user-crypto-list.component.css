@@ -1,81 +1,44 @@
-
 table
 { 
     width: 100%; 
     text-align: center; 
+    border: 3px solid black;
 }
 th.mat-header-cell { 
+    background-color:white;
+    color: black;
+    border-bottom: 2px solid black;
     text-align: center !important;
-    /* background-color: rgb(107, 133, 156); */
-    background-color: rgb(41, 40, 40) ;
-    color: white;
     font-weight: bold;
-    font-size:medium;
+    font-size: calc(0.7em + 0.5vw);
+    
 }
-th.mat-sort-header-sorted {
-    color: rgb(173, 62, 62);
-}
-
 td {
+    font-size: calc(0.5em + 0.5vw);
+}
+.mat-cell, .mat-header-cell {    
+    font-size: calc(0.7em + 0.5vw);
+    color: black;
     font-weight: bold;
-  }
-
-
-@media (min-width: 1024px) { /* desktop */
-    /* table { width: 100%;} */
-} 
-@media (max-width: 1023px) and (min-width: 768px) { /* tablet */
-    /* table { width: 98%;} */
-    .mat-cell, .mat-header-cell {    
-         overflow: hidden;    
-        text-overflow: ellipsis;   
-        word-break: break-word; 
-    }
-    th.mat-header-cell { 
-        font-size: medium;
-    }
-    td {
-        font-weight:normal;
-        font-size: medium;
-    }
-    button{
-        font-weight:normal;
-        font-size: medium;
-    }
-} 
-@media (max-width: 767px) and (min-width: 410px) {  /* mobile */ 
-    .mat-cell, .mat-header-cell {    
-        overflow: hidden;    
-        text-overflow: ellipsis;   
-        word-break: break-word; 
-   }
-   th.mat-header-cell { 
-       font-size:x-small;
-   }
-   td {
-       font-weight:normal;
-       font-size:x-small;
-    }
-    button{
-        font-weight:normal;
-        font-size: x-small;
-    }
 }
-@media (max-width: 409px) {  /* mobile */ 
-    .mat-cell, .mat-header-cell {    
-        overflow: hidden;    
-        text-overflow: ellipsis;   
-        word-break: break-word; 
-   }
-   th.mat-header-cell { 
-       font-size:5px;
-   }
-   td {
-       font-weight:normal;
-       font-size: 5px;
-    }
-    button{
-        font-weight:normal;
-        font-size: 5px;
-    }
+.tableContainer{
+    overflow-x: auto;
+    overflow-y : hidden;
 }
+
+tr:nth-of-type(odd) { 
+    background: #dce4da; 
+}
+th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+}
+td, th { 
+    padding: 6px; 
+    text-align: center; 
+}
+.isLoadingStyle ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+}
+

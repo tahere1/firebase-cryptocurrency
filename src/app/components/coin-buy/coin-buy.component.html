@@ -1,19 +1,25 @@
  <div *ngIf="!userIsLoggedIn" class="FullWidth">
-    <p>لطفا به حساب کاربری خود وارد شوید.</p>
+    <p class="alertStyle">
+        <mat-icon inline="true">warning</mat-icon>
+        لطفا با حساب کاربری خود وارد شوید.
+    </p>
     <app-login-user></app-login-user>
 </div>
 
-<!-- ------------------------------------------------------------------- -->
 <div *ngIf="userIsLoggedIn">
     <div *ngIf="coinData">
-        <h1 class="mainTitle"> {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})</h1>
+        <h1 class="mainTitle">
+            <img class="cryptoIcon" [src] = "loadIcon(coinData.symbol| uppercase)" alt="crypto icon" />
+            {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
+        </h1>
     </div>
     <!-- buy coin : -->
     <div *ngIf="coinData">
         <div fxLayout="row" fxLayoutAlign="center center"  >
             <mat-card class="w80">
                 <mat-card-header>
-                    <mat-card-title>خرید &nbsp;
+                    <mat-card-title>
+                        خرید &nbsp;
                         {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
                     </mat-card-title>
                 </mat-card-header>
@@ -32,15 +38,14 @@
                             </mat-form-field>
                             <br>
                             
-                            <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!PriceForm.valid">خرید</button>
+                            <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!PriceForm.valid" 
+                            [ngStyle.lt-sm]="{'width':'95%','padding':'1%','margin':'1%'}">خرید</button>
                             <br/>
                         </form>
                 </mat-card-content>
             </mat-card>
             
         </div>
-    
-    <!-- ------------------------------------------------------------------- -->
     <!-- sell coin : -->
         <div fxLayout="row"  fxLayoutAlign="center center" >
             <mat-card class="w80">

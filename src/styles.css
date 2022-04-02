@@ -17,15 +17,25 @@ html, body {
 body { 
     margin-bottom: 5% !important;
     min-height: 100vh;
-    background-color: #d8d8db;
-
+    background: url(assets/image/crypto-bg.jpg);
+    background-repeat: repeat;
+    background-position: right top;
+    background-attachment: scroll;
 }
 .material-icons{
   font-family: 'Material Icons' !important;
 }
 
 .mainTitle{
-    border-bottom: 6px solid #950740;
+  font-size: calc(1em + 1vw) !important;
+  line-height: calc(1em + 0.5vw) !important;
+  padding: 1vw; 
+  margin: 1vw;
+  background-color: #08583b;
+  border: 9px double white; 
+  color: white; 
+  border-radius: 10px;
+  text-align: center;
 }
 .positionRight{
   text-align: right;
@@ -44,25 +54,51 @@ body {
   padding: 3% !important;
 }
 .mySubmitBtn{
-  background-color: #950740;
+  background-color: #08583b;
   color: white;
 }
 .mySubmitBtn:disabled,
 .mySubmitBtn[disabled]{
-border: 2px solid #8a8585;
-background-color: #f0d4d4;
+background-color: #18a370;
 color: white !important;
 }
 
-/* .box {
-  position: relative;
-  top: 0;
-  opacity: 1;
-  float: right;
-  padding: 60px 50px 40px 50px;
-  width: 100%;
-  background: #fff;
-  max-width: 400px;
-  margin: 3%;
-} */
+.noRecordError{
+  font-size: calc(0.5em + 0.5vw);
+  padding: 5px;
+  background-color: white;
 
+}
+
+.isLoadingStyle{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background: white;
+  margin: 5px !important;
+}
+
+.cryptoIcon{
+  width: calc(1.1em + 0.5vw);
+  height: calc(1.1em + 0.5vw);
+  padding: 1vw;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.mat-icon{
+  display:inline-block;
+  vertical-align:middle;
+}
+.mat-card-content{
+  font-size: calc(0.6em + 0.5vw) !important;
+}
+.alertStyle{
+  background-color: #d5e9d0;
+  line-height: calc(1em + 1.5vw) !important;
+  padding: 10px;
+  border-radius: 10px;
+  border:2px solid rgb(88, 88, 88);
+  font-weight: bold;
+  font-size: calc(0.7em + 0.5vw);
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,12 +12,18 @@ import { LoginUserComponent } from './components/login-user/login-user.component
 import { TransactionsListComponent } from './components/transactions-list/transactions-list.component';
 import { CoinBuyComponent } from './components/coin-buy/coin-buy.component';
 import { CoinSellComponent } from './components/coin-sell/coin-sell.component'; 
+import { UserCryptoListComponent } from './components/user-crypto-list/user-crypto-list.component';
+import { DialogBodyComponent } from './components/dialog/dialog-body/dialog-body.component'
+import { DialogSellComponent } from './components/dialog/dialog-sell/dialog-sell.component';
+import { DialogBuyComponent } from './components/dialog/dialog-buy/dialog-buy.component';
+
 // Date and Time 
 import { DatePipe } from '@angular/common';
 // Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './Module/angular-material.module';
 // import {MatDialogModule} from "@angular/material/dialog";
+
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 // FormsModule 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,12 +35,11 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 // Sate Management:
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import { UserCryptoListComponent } from './components/user-crypto-list/user-crypto-list.component';
-
 
 
 const routes: Routes = [
   { path: '', component: CryptoListComponent },
+  { path: 'home', component: CryptoListComponent },
   { path: 'register', component: CreateUserComponent },
   { path: 'login', component: LoginUserComponent },
   { path: 'transactions-list', component: TransactionsListComponent},
@@ -50,10 +56,14 @@ const routes: Routes = [
     TransactionsListComponent,
     CoinBuyComponent,
     CoinSellComponent,
-    UserCryptoListComponent
+    UserCryptoListComponent,
+    DialogBodyComponent,
+    DialogSellComponent,
+    DialogBuyComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
@@ -71,6 +81,7 @@ const routes: Routes = [
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [DialogBodyComponent]
 })
 export class AppModule { }

@@ -1,0 +1,25 @@
+.mat-dialog-title{
+    background-color: #cee0c9;
+    color: black;    
+    padding: 1vw;
+    font-size: calc(0.8em + 0.5vw);
+    text-align: center;
+}
+.dialogContent{
+    color: #8d1a11;
+    font-weight: bolder;
+    font-size: calc(0.7em + 0.5vw);
+}
+.colorBlack {
+    color: black;
+}
+
+.DialogBtn {
+    width:40% ;
+    margin-left:30%;
+    margin-right:30%;
+    border-radius: 5px;
+    background-color: #d5e9d0;
+    color: black;
+    font-size: calc(0.6em + 0.5vw);
+}

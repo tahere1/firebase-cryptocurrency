@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from "@angular/router";
 import { UserStore } from 'src/app/store/user.store';
 import { UserQuery } from 'src/app/store/user.query';
+import {MatDialog , MatDialogConfig} from "@angular/material/dialog";
+import { DialogBodyComponent } from 'src/app/components/dialog/dialog-body/dialog-body.component';
+
 
 @Component({
   selector: 'app-create-user',
@@ -22,7 +25,8 @@ export class CreateUserComponent implements OnInit {
      public formBuilder: FormBuilder,
      public router: Router,
      private userStore: UserStore, 
-     private userQuery : UserQuery ) {
+     private userQuery : UserQuery,
+     private dialog: MatDialog) {
     this.userForm = this.formBuilder.group({
       firstname: ['' , [Validators.required, Validators.minLength(2)]],
       lastname: ['', [Validators.required]],
@@ -35,7 +39,6 @@ export class CreateUserComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmit(){
-
     // var UsernameExist = this.firebaseService.checkDuplicateUsername(this.userForm.value.username);
     this.firebaseService.checkDuplicateUsername(this.userForm.value.username)
         .subscribe((result) => {
@@ -49,12 +52,29 @@ export class CreateUserComponent implements OnInit {
                   }));
                 this.userQuery.saveToLocalStorage();
                 this.userForm.reset();
-                alert("حساب کاربری شما با موفقیت ثبت گردید.");
-                this.router.navigate(['/']);
+
+                const dialogConfig = new MatDialogConfig();
+                dialogConfig.data = { 
+                  dialogTitle: "ثبت حساب کاربری",
+                  dialogContent : "کاربر" + this.userForm.value.username +
+                   "عزیز حساب کاربری شما با موفقیت ثبت گردید.",
+                   dialogAccept: true
+                };
+                dialogConfig.direction = 'rtl';
+                dialogConfig.width="50%";
+                this.dialog.open(DialogBodyComponent, dialogConfig);
             }
             else {
-              alert("این نام کاربری تکراری است. لطفا نام کاربری خود را تغییر دهید.");
-
+              const dialogConfig = new MatDialogConfig();
+                dialogConfig.data = { 
+                  dialogTitle: "ثبت حساب کاربری",
+                  dialogContent : "نام کاربری" + this.userForm.value.username +
+                  " تکراری است. لطفا نام کاربری دیگری را انتخاب نمایید.",
+                  dialogAccept: false
+                };
+                dialogConfig.direction = 'rtl';
+                dialogConfig.width="50%";
+                this.dialog.open(DialogBodyComponent, dialogConfig);
             }
         });
     

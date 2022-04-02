@@ -5,7 +5,10 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from "@angular/router";
 import { DatePipe } from '@angular/common';
 import { UserQuery } from 'src/app/store/user.query';
-
+import {MatDialog , MatDialogConfig} from "@angular/material/dialog";
+// import { DialogBodyComponent } from 'src/app/components/dialog-body/dialog-body.component';
+import { DialogBuyComponent } from 'src/app/components/dialog/dialog-buy/dialog-buy.component';
+import * as icons from 'base64-cryptocurrency-icons/build/index.js'
 
 
 @Component({
@@ -26,13 +29,15 @@ export class CoinBuyComponent implements OnInit {
     public formBuilder: FormBuilder,
     public router: Router,
     public datepipe: DatePipe,
-    private userQuery: UserQuery) {
+    private userQuery: UserQuery,
+    private dialog: MatDialog) {
         // get coin data from localStorage :
         this.item = localStorage.getItem('coinData');
         this.coinData = JSON.parse(this.item);
         // form :
         this.PriceForm = this.formBuilder.group({
           buyCrypto: ['', [Validators.required, Validators.min(10000)]]
+
         }) 
         // 
         this.persianDate= new Date().toLocaleDateString('fa-Ir');
@@ -50,16 +55,13 @@ export class CoinBuyComponent implements OnInit {
         this.userName =  userData.username;
         this.userIsLoggedIn = userData.isLogedIn;
       } 
-
   }
 
   updatePrice(x:any){
-    // var y: number = +x.target.value;
     this.totalPrice = +x.target.value;
   }
   onSubmitPrice(){
     var totalCoin = this.totalPrice/ this.coinData.priceToman;
-    // let currentTime = this.datepipe.transform((new Date), 'h:mm:ss');
     var buyData = {
       coinId : this.coinData.coinId,
       coinNameFa : this.coinData.coinNameFa,
@@ -74,10 +76,20 @@ export class CoinBuyComponent implements OnInit {
       type:"خرید"
     };
     this.firebaseService.buyCoin(buyData);
-    alert(" تعداد " +totalCoin +" رمز ارز " +this.coinData.coinNameFa +" به مبلغ  " 
-    +this.totalPrice+" به حساب شما اضافه شد. " );
-     this.router.navigate(['/']);
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { TotalCoin: totalCoin ,
+      CoinNameFa : this.coinData.coinNameFa ,
+      TotalPrice : this.totalPrice ,
+      CoinSymbol : this.coinData.symbol,
+    };
+    dialogConfig.direction = 'rtl';
+    dialogConfig.width="70%";
+    this.dialog.open(DialogBuyComponent, dialogConfig);
   }
 
+  loadIcon(cryptoName:string){
+    return icons[cryptoName]?.icon;
+  }
 
 }

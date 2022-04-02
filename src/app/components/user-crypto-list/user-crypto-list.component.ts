@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { UserQuery } from 'src/app/store/user.query';
+import * as icons from 'base64-cryptocurrency-icons/build/index.js'
+
 
 @Component({
   selector: 'app-user-crypto-list',
@@ -9,10 +11,11 @@ import { UserQuery } from 'src/app/store/user.query';
 })
 export class UserCryptoListComponent implements OnInit {
 
-  displayedColumns: string[] = ['symbol', 'coinAmount'];
+  displayedColumns: string[] = ['icons', 'symbol', 'coinAmount'];
   dataSource :any;
   userName :string = '';
   userCoinsData :any;
+  isLoading: boolean = true;
   constructor(public firebaseService: FirebaseService,private userQuery: UserQuery) {
     // get username:
     this.userQuery.multiProps$.subscribe((result:any) => {
@@ -25,14 +28,20 @@ export class UserCryptoListComponent implements OnInit {
       } 
       // get user's coins from firebase :
       this.firebaseService.getUserCoinsAmount(this.userName).subscribe((result)=>{
-        console.log(result);
+        this.isLoading = false;
         this.userCoinsData = result;
-      });
+      }, 
+        error => this.isLoading = false
+      );
    }
 
   ngOnInit(): void {}
 
   get transformedBody() {
     return Object.keys(this.userCoinsData);
+  }
+
+  loadIcon(cryptoName:string){
+    return icons[cryptoName]?.icon;
   }
 }

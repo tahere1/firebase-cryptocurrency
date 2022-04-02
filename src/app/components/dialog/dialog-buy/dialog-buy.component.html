@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>
+    خرید {{coinNameFa}} ({{coinSymbol}})
+</h2>
+<mat-dialog-content>
+    <p class="dialogContent"> خرید رمزارز شما با موفقیت ثبت گردید.
+        مبلغ
+         {{totalPrice| number : '1.0-0'}}
+         تومان از حساب شما کسر شده است.
+    </p>
+    <p class="dialogContent colorBlack">تعداد رمز ارز {{coinNameFa}} : <span> {{totalCoin}}</span>  </p>
+    <p class="dialogContent colorBlack">مبلغ پرداختی (تومان): <span>{{totalPrice| number : '1.0-0'}}</span></p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-stroked-button class="DialogBtn md-button" (click)="close()"
+    [ngStyle.lt-sm]="{'width':'95%','padding':'1%','margin':'1%'}">بستن</button>
+</mat-dialog-actions>

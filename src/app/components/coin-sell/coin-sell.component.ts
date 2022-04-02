@@ -3,6 +3,9 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from "@angular/router";
 import { DatePipe } from '@angular/common';
+import {MatDialog , MatDialogConfig} from "@angular/material/dialog";
+import { DialogBodyComponent } from 'src/app/components/dialog/dialog-body/dialog-body.component';
+import { DialogSellComponent } from 'src/app/components/dialog/dialog-sell/dialog-sell.component';
 
 @Component({
   selector: 'app-coin-sell',
@@ -27,7 +30,8 @@ export class CoinSellComponent implements OnInit {
   constructor(public firebaseService: FirebaseService,
     public formBuilder: FormBuilder,
     public router: Router,
-    public datepipe: DatePipe){ 
+    public datepipe: DatePipe,
+    private dialog: MatDialog){ 
         // set ِDate :
         this.persianDate= new Date().toLocaleDateString('fa-Ir');
         // get coin data from localStorage :
@@ -68,27 +72,59 @@ export class CoinSellComponent implements OnInit {
           time : this.datepipe.transform((new Date), 'h:mm:ss'),
           Date : this.persianDate,
           type:"فروش"
-      };
-      let remainingCoin = this.totalUserCoin - this.inputCoinsAmount;
-      this.firebaseService.sellCoin(sellData , remainingCoin);
-      alert("مبلغ "+ this.totalCoinPrice + " تومان به حساب شما اضافه شد. " 
-      + "\n تعداد رمز ارز " + this.coinData.coinNameFa 
-      + " باقی مانده برابر است با : " + remainingCoin );
-      this.router.navigate(['/']);
+        };
+        let remainingCoin = this.totalUserCoin - this.inputCoinsAmount;
+        this.firebaseService.sellCoin(sellData , remainingCoin);
+
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = { 
+          TotalCoinPrice: this.totalCoinPrice ,
+          TotalCoin : this.inputCoinsAmount,
+          CoinNameFa : this.coinData.coinNameFa ,
+          CoinSymbol : this.coinData.symbol,
+          remainingCoin : remainingCoin
+        };
+        dialogConfig.direction = 'rtl';
+        dialogConfig.width="50%";
+        this.dialog.open(DialogSellComponent, dialogConfig);
+
     }
     else if(this.inputCoinsAmount == 0 && this.totalUserCoin >0){
-      alert("لطفا تعداد رمز ارز را وارد نمایید.");
+      const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = { 
+          dialogTitle: "خطا در فروش رمزارز",
+          dialogContent :"تعداد رمز ارز وارد شده صفر است. لطفا تعداد را درست وارد نمایید.",
+          dialogAccept: false
+        };
+        dialogConfig.direction = 'rtl';
+        dialogConfig.width="50%";
+        this.dialog.open(DialogBodyComponent, dialogConfig);
     }
     else if(this.inputCoinsAmount > this.totalUserCoin){
-      alert("شما این تعداد رمز ارز برای فروش ندارید.");
+      const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = { 
+          dialogTitle: "خطا در فروش رمزارز",
+          dialogContent :"شما این تعداد رمز ارز برای فروش ندارید.",
+          dialogAccept: false
+        };
+        dialogConfig.direction = 'rtl';
+        dialogConfig.width="50%";
+        this.dialog.open(DialogBodyComponent, dialogConfig);
     }
-    else if(this.inputCoinsAmount == 0){
-      alert("تعداد رمز ارز وارد شده برای فروش برابر با صفر است.");
+    else if(this.inputCoinsAmount == 0 && this.totalUserCoin == 0){
+      const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = { 
+          dialogTitle: "خطا در فروش رمزارز",
+          dialogContent :  "تعداد رمز ارز" + this.coinData.coinNameFa +" شما برابر با صفر است",
+          dialogAccept: false
+        };
+        dialogConfig.direction = 'rtl';
+        dialogConfig.width="50%";
+        this.dialog.open(DialogBodyComponent, dialogConfig);
     }
   }
 
-
-  updateInutCoins(x:any){
+  updateInputCoins(x:any){
     this.inputCoinsAmount = +x.target.value;
     this.totalCoinPrice = this.inputCoinsAmount * this.coinData.priceToman;
   }

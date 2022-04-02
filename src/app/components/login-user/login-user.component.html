@@ -1,18 +1,22 @@
-<h1 class="mainTitle">فرم ورود</h1>
+<h1 class="mainTitle">
+   <mat-icon inline="true">account_box</mat-icon>
+  فرم ورود
+</h1>
 <div fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="w70">
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
-      <mat-card-content>
-        <mat-form-field class="positionRight FullWidth">
-          <input matInput placeholder="نام کاربری" style="float: right;" formControlName="username" required>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="positionRight FullWidth">
-          <input matInput placeholder="رمز عبور" type="password" formControlName="password" required>
-        </mat-form-field>
-      </mat-card-content>
-      <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!loginForm.valid">ورود</button>
-    </form>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+        <mat-card-content>
+          <mat-form-field class="positionRight FullWidth">
+            <input matInput placeholder="نام کاربری" style="float: right;" formControlName="username" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="positionRight FullWidth">
+            <input matInput placeholder="رمز عبور" type="password" formControlName="password" required>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!loginForm.valid"
+        [ngStyle.lt-sm]="{'width':'95%','padding':'1%','margin':'1%'}">ورود</button>
+      </form>
   </mat-card>
 </div>
 

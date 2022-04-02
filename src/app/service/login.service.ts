@@ -3,6 +3,8 @@ import { Router } from "@angular/router";
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { UserStore } from 'src/app/store/user.store';
 import { UserQuery } from 'src/app/store/user.query';
+import {MatDialog , MatDialogConfig} from "@angular/material/dialog";
+import { DialogBodyComponent } from 'src/app/components/dialog/dialog-body/dialog-body.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,8 @@ export class LoginService {
   constructor(public firebaseService: FirebaseService,
               public router: Router,
               private userStore: UserStore , 
-              private userQuery : UserQuery) { }
+              private userQuery : UserQuery,
+              private dialog: MatDialog) { }
 
   userLogin(formUsername:string ,formPassword : any ){
     this.firebaseService.readUserData(formUsername).subscribe((result:any) => {
@@ -27,7 +30,15 @@ export class LoginService {
         this.router.navigate(['/']);
       }
       else {
-          alert("رمز عبور شما نادرست است.");
+          const dialogConfig = new MatDialogConfig();
+          dialogConfig.data = { 
+            dialogTitle: "ورود به حساب کاربری",
+            dialogContent : "رمز عبور شما نادرست است. لطفا رمز عبور صحیح را وارد نمایید",
+            dialogAccept: false
+          };
+          dialogConfig.direction = 'rtl';
+          dialogConfig.width="50%";
+          this.dialog.open(DialogBodyComponent, dialogConfig);
         }
     });
   }

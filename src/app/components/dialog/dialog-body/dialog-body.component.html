@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>
+    {{dialogTitle}}
+</h2>
+<mat-dialog-content>
+    <p class="dialogContent">
+        {{dialogContent}}
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-stroked-button class="DialogBtn" (click)="close()"
+    [ngStyle.lt-sm]="{'width':'95%','padding':'1%','margin':'1%'}">بستن</button>
+</mat-dialog-actions>

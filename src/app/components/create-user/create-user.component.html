@@ -1,6 +1,9 @@
-<h1 class="mainTitle">فرم ثبت نام</h1>
+<h1 class="mainTitle">
+  <mat-icon inline="true">person_add</mat-icon>
+  فرم ثبت نام
+</h1>
 <div fxLayout="row" fxLayoutAlign="center center">
-  <mat-card>
+  <mat-card class="w70">
     <form class="my-form" [formGroup]="userForm"  (ngSubmit)="onSubmit()" novalidate>
       <mat-card-content>
           <mat-form-field class="positionRight FullWidth">
@@ -28,8 +31,8 @@
             </mat-error>
           </mat-form-field>
         </mat-card-content>
-      <!-- </mat-card-content> -->
-      <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!userForm.valid" >ثبت</button>
+      <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!userForm.valid" 
+      [ngStyle.lt-sm]="{'width':'95%','padding':'1%','margin':'1%'}">ثبت</button>
     </form>
   </mat-card>
 </div>

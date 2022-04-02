@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>
+    فروش {{coinNameFa}} ({{coinSymbol}})
+</h2>
+<mat-dialog-content>
+    <p class="dialogContent">فروش رمزارز شما با موفقیت ثبت گردید.
+        مبلغ
+         {{totalCoinPrice| number : '1.0-0'}} 
+         تومان به حساب شما اضافه شده است.
+    </p>
+    <p class="dialogContent colorBlack">تعداد رمز ارز {{coinNameFa}} فروخته شده: <span> {{totalCoin}}</span>  </p>
+    <p class="dialogContent colorBlack">تعداد رمز ارز {{coinNameFa}} باقی مانده: <span> {{remainingCoin}}</span>  </p>
+    <p class="dialogContent colorBlack">مبلغ دریافتی (تومان): <span>{{totalCoinPrice| number : '1.0-0'}}</span></p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-stroked-button class="DialogBtn" (click)="close()"
+    [ngStyle.lt-sm]="{'width':'95%','padding':'1%','margin':'1%'}">بستن</button>
+</mat-dialog-actions>

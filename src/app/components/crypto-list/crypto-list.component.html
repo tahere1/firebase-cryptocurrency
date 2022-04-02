@@ -1,18 +1,21 @@
-<div >
+<div class="tableContainer">
 <h1 class="mainTitle">لیست رمز ارزها</h1>
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" 
 	matSort #empTbSort="matSort" (matSortChange)="sortData(dataSource)">
 		<ng-container matColumnDef="symbol">
 			<th mat-header-cell *matHeaderCellDef> نماد </th>
-			<td mat-cell *matCellDef="let item"> {{item.symbol}} </td>
+			<td mat-cell *matCellDef="let item">
+				<img class="cryptoIcon" [src] = "loadIcon(item.symbol | uppercase)" alt="crypto icon" />
+				 {{item.symbol}} 
+				</td>
 		</ng-container>
 		<ng-container matColumnDef="coinNameEn">
-			<th mat-header-cell *matHeaderCellDef>نام انگلیسی</th>
+			<th  mat-header-cell *matHeaderCellDef>نام انگلیسی</th>
 			<td mat-cell *matCellDef="let item"> {{item.coinNameEn}} </td>
 		</ng-container>
 		<ng-container matColumnDef="coinNameFa">
-			<th mat-header-cell *matHeaderCellDef>نام فارسی</th>
-			<td mat-cell *matCellDef="let item"> {{item.coinNameFa}} </td>
+			<th  mat-header-cell *matHeaderCellDef>نام فارسی</th>
+			<td  mat-cell *matCellDef="let item"> {{item.coinNameFa}} </td>
 		</ng-container>
 		<ng-container matColumnDef="price">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>قیمت</th>
@@ -25,12 +28,24 @@
 		<ng-container matColumnDef="buy">
 			<th mat-header-cell *matHeaderCellDef>خرید و فروش </th>
 			<td mat-cell *matCellDef="let item" >
-				 <button (click)="getRecord(item)" class="myButton">خرید / فروش</button> 
+				<button mat-stroked-button (click)="getRecord(item)" class="myButton">
+					 <mat-icon>shopping_cart</mat-icon>
+				</button> 
 			</td>
 		</ng-container>
+
 		<tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
-		<!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr> -->
 		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 	</table>
+</div>
+<div *ngIf="isLoading" class="isLoadingStyle">
+  <mat-progress-spinner mode="indeterminate" [diameter]="60"></mat-progress-spinner>
+</div>
+
+<div *ngIf="dataSource === undefined " class="noRecordError">
+	<p class="alertStyle">
+		<mat-icon>error</mat-icon>
+		 لطفا فیلتر شکن خود را روشن نمایید تا لیست رمز ارزها برای شما نمایش داده شود.
+	</p>
 </div>

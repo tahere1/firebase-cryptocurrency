@@ -1,63 +1,22 @@
 .mainDiv{
     padding: 5% !important;
     margin: 3% !important;
-    border-radius: 5px;
-    background-color: rgb(246, 246, 248);
-    box-shadow: 8px 10px #950740;
-    border: 3px solid black;
+    margin-top: 1% !important;
+    padding-top: 3% !important;
+    background-color: white;
+    border-radius: 10px;
 }
-
-
 /* ---------------- toolbar css------------------------ */
 mat-toolbar{
-  background-color: #950740;
+  background-color: #073826;
   color: white;
 }
-
-/* ------------------- tooltip ------------------------------ */
-.tooltip {
-  position: relative;
-  display: inline-block;
+mat-toolbar a{
+  border: 2px solid white;
+  box-shadow: 3px 3px white; 
+  margin: 5px !important;
 }
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: 100%;
-  left: 50%;
-  margin-left: -60px;
+/* ------------------- menu------------------------------ */
+.MenuFont{
+  font-size: calc(0.7em + 0.5vw) !important;
 }
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-/* ---------------- @media ------------------------ */
-
-/* @media (min-width: 1024px) { 
-  .mainDiv {
-    padding: 5%;
-    margin: 3%;
-  }
-}  */
-/* @media (max-width: 1023px) and (min-width: 768px) {
-  .mainDiv {
-    padding: 5%;
-    margin: 3%;
-  }
-}  */
-/* @media (max-width: 767px) {
-  .mainDiv {
-    padding: 2%;
-    margin: 2%;
-  }
-} */
