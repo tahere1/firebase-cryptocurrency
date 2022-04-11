@@ -1,56 +1,58 @@
- <div *ngIf="!userIsLoggedIn" class="FullWidth">
-    <p class="alertStyle">
-        <mat-icon inline="true">warning</mat-icon>
-        لطفا با حساب کاربری خود وارد شوید.
-    </p>
-    <app-login-user></app-login-user>
-</div>
-
-<div *ngIf="userIsLoggedIn">
-    <div *ngIf="coinData">
-        <h1 class="mainTitle">
-            <img class="cryptoIcon" [src] = "loadIcon(coinData.symbol| uppercase)" alt="crypto icon" />
-            {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
-        </h1>
+<div class="mainDiv mat-elevation-z8">
+    <div *ngIf="!userIsLoggedIn" class="FullWidth">
+        <p class="alertStyle">
+            <mat-icon inline="true">warning</mat-icon>
+            لطفا با حساب کاربری خود وارد شوید.
+        </p>
+        <app-login-user></app-login-user>
     </div>
-    <!-- buy coin : -->
-    <div *ngIf="coinData">
-        <div fxLayout="row" fxLayoutAlign="center center"  >
-            <mat-card class="w80">
-                <mat-card-header>
-                    <mat-card-title>
-                        خرید &nbsp;
-                        {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p class="price myPadding">قیمت (تومان) : <span>{{coinData.priceToman | number : '1.0-0'}}</span> </p>
-                    <p class="price">قیمت (دلار) : <span>{{coinData.price}}</span> </p>
-                    
-                        <p class="price">محاسبه تعداد رمز ارز دریافتی : 
-                            <span>{{totalPrice / coinData.priceToman}}</span></p>
-                        <form class="my-form" [formGroup]="PriceForm"  (ngSubmit)="onSubmitPrice()" novalidate>
-                            <mat-form-field class="positionRight w90">
-                                <input (keyup)="updatePrice($event)" matInput placeholder="مبلغ پرداختی (به تومان) را در این قسمت وارد نمایید" type='number' formControlName="buyCrypto" required>
-                                <mat-error>
-                                    مبلغ کمتر از 10000 تومان مورد قبول نمی باشد
-                                </mat-error>
-                            </mat-form-field>
-                            <br>
-                            
-                            <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!PriceForm.valid" 
-                            [ngStyle.lt-sm]="{'width':'95%','padding':'1%','margin':'1%'}">خرید</button>
-                            <br/>
-                        </form>
-                </mat-card-content>
-            </mat-card>
-            
+
+    <div *ngIf="userIsLoggedIn">
+        <div *ngIf="coinData">
+            <h1 class="mainTitle">
+                <img class="cryptoIcon" [src] = "loadIcon(coinData.symbol| uppercase)" alt="crypto icon" />
+                {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
+            </h1>
         </div>
-    <!-- sell coin : -->
-        <div fxLayout="row"  fxLayoutAlign="center center" >
-            <mat-card class="w80">
-                <app-coin-sell></app-coin-sell>
-            </mat-card>
+        <!-- buy coin : -->
+        <div *ngIf="coinData">
+            <div fxLayout="row" fxLayoutAlign="center center"  >
+                <mat-card class="w80 mat-elevation-z8">
+                    <mat-card-header>
+                        <mat-card-title>
+                            خرید &nbsp;
+                            {{coinData.coinNameFa}} &nbsp;({{coinData.symbol}})
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="price myPadding">قیمت (تومان) : <span>{{coinData.priceToman | number : '1.0-0'}}</span> </p>
+                        <p class="price">قیمت (دلار) : <span>{{coinData.price}}</span> </p>
+                        
+                            <p class="price">محاسبه تعداد رمز ارز دریافتی : 
+                                <span>{{totalPrice / coinData.priceToman}}</span></p>
+                            <form class="my-form" [formGroup]="PriceForm"  (ngSubmit)="onSubmitPrice()" novalidate>
+                                <mat-form-field class="positionRight w90">
+                                    <input (keyup)="updatePrice($event)" matInput placeholder="مبلغ پرداختی (به تومان) را در این قسمت وارد نمایید" type='number' formControlName="buyCrypto" required>
+                                    <mat-error>
+                                        مبلغ کمتر از 10000 تومان مورد قبول نمی باشد
+                                    </mat-error>
+                                </mat-form-field>
+                                <br>
+                                
+                                <button mat-stroked-button class="mySubmitBtn" type="submit" [disabled]="!PriceForm.valid" 
+                                [ngStyle.lt-sm]="{'width':'95%','height': 'auto','padding':'1%','margin':'1%'}">خرید</button>
+                                <br/>
+                            </form>
+                    </mat-card-content>
+                </mat-card>
+                
+            </div>
+        <!-- sell coin : -->
+            <div fxLayout="row"  fxLayoutAlign="center center" >
+                <mat-card class="w80 matcartMargin mat-elevation-z8">
+                    <app-coin-sell></app-coin-sell>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>

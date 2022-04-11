@@ -1,5 +1,6 @@
+
 <div>
-  <mat-toolbar>
+  <mat-toolbar class="mat-elevation-z8">
     <div fxShow="true" fxHide.lt-md="true">
       <a mat-button routerLink="/home"><mat-icon>home</mat-icon>&nbsp;صفحه اصلی</a>
       <a mat-button routerLink="/transactions-list"><mat-icon>list</mat-icon>&nbsp;لیست معاملات</a>
@@ -40,11 +41,34 @@
           </button>
         </mat-menu>
     </div>
-   
   </mat-toolbar>
 
-    <div class="mainDiv">
+
+    <div>
       <router-outlet></router-outlet>
     </div>
-</div>
 
+  <div class="main-footer">
+    <div class="section">
+      <img class="BTCIcon" [src] = "loadIcon('BTC' | uppercase)" alt="crypto icon" />
+      <img class="BTCIcon" [src] = "loadIcon('ETH' | uppercase)" alt="crypto icon" />
+      <img class="BTCIcon" [src] = "loadIcon('BNB' | uppercase)" alt="crypto icon" />
+      <p>خرید ارز دیجیتال، به صورت ساده، سریع، حرفه ای و امن</p>
+    </div>
+    <div class="section">
+      
+      <h2>لینک های مرتبط</h2>
+      <a mat-button href="/">صرافی های داخلی ارزهای دیجیتال</a><br>
+      <a mat-button href="/">صرافی های جهانی ارزهای دیجیتال</a><br>
+      <a mat-button href="/">مقایسه بازارهای داخلی رمزارزها</a><br>
+      <a mat-button href="/">مقایسه بازارهای جهانی رمزارزها</a><br>
+    </div>
+    <div class="section">
+      <h2>راهنما و پشتیبانی</h2>
+      <a mat-button  href="/">سوالات متداول</a><br>
+      <a mat-button  href="/">تماس با پشتیبانی</a><br>
+      <a mat-button  href="/">راهنمای امنیت حساب کاربری</a><br>
+    </div>
+  </div>
+  
+</div>

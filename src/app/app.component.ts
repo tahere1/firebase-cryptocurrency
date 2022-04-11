@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 // akita : 
 import { UserStore } from 'src/app/store/user.store';
 import { UserQuery } from 'src/app/store/user.query';
+import * as icons from 'base64-cryptocurrency-icons/build/index.js'
+
 
 @Component({
   selector: 'app-root',
@@ -32,6 +34,10 @@ export class AppComponent implements OnInit {
     this.userQuery.deleteLocalStorage();
     this.username = '';
     this.userisLoggedIn = false;
+  }
+
+  loadIcon(cryptoName:string){
+    return icons[cryptoName]?.icon;
   }
 
 }

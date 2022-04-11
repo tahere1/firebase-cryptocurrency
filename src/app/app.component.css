@@ -1,22 +1,49 @@
-.mainDiv{
-    padding: 5% !important;
-    margin: 3% !important;
-    margin-top: 1% !important;
-    padding-top: 3% !important;
-    background-color: white;
-    border-radius: 10px;
-}
 /* ---------------- toolbar css------------------------ */
 mat-toolbar{
-  background-color: #073826;
+  background-color: rgb(2, 2, 65);
   color: white;
 }
 mat-toolbar a{
-  border: 2px solid white;
-  box-shadow: 3px 3px white; 
   margin: 5px !important;
 }
+
 /* ------------------- menu------------------------------ */
 .MenuFont{
   font-size: calc(0.7em + 0.5vw) !important;
+}
+/* -------------------------- footer --------------------------------- */
+.main-footer{
+  font-size: calc(1em +1vw) !important;
+  color: white;  
+  height: auto;
+  background-color: rgb(2, 2, 65);
+  margin-right: 2px;
+  margin-left: 2px !important;
+  padding: 3px;
+
+  display: table;
+  table-layout: fixed; /*euqal column width*/
+  width: 99%;
+}
+
+.section {
+  text-align: center;
+  font-size: calc(0.7em + 0.5vw) !important;
+  display: table-cell;
+  padding: 2vw;
+}
+
+@media (max-width: 768px) { 
+  .section {
+    display: block;
+    
+  }
+}
+/* ---------------------- BTC Icon (footer) ----------------------------- */
+.BTCIcon{
+  width: calc(2em +2vw);
+  height: calc(2em + 2vw);
+  padding: 1vw;
+  display:inline-block;
+  vertical-align:middle;
 }

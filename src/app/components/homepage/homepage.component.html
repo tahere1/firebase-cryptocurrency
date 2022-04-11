@@ -1,0 +1,67 @@
+<div class="mainDiv mat-elevation-z8">
+    <div class="bgContainer">
+        <div class="title" [ngStyle.lt-sm]="{'width':'80%'}">
+            <h1>
+                خرید ارز دیجیتال، به صورت ساده، سریع، حرفه ای و امن
+            </h1>
+            <p>
+                سایت صرافی ارز دیجیتال و کریپتوکارنسی (Cryptocurrency)   با امکان خرید و فروش رمز ارز هایی نظیر بیت کوین، اتریوم، دوج کوین، لایت کوین و ... به صورت سریع، حرفه ای و امن.
+            </p>
+        </div>
+    </div>
+    <div class="Imp mat-elevation-z8">
+        <h1 class="ImpTitle">
+            <span>رمزارزهای پرطرفدار</span>
+        </h1>
+        <div class="ImpCrypto mat-elevation-z8">
+            <div class="section mat-elevation-z8 dropdown">
+                <h3>
+                    <img class="cIcon" [src] = "loadIcon('BTC' | uppercase)" alt="crypto icon" />
+                    بیت کوین (BTC)
+                </h3>
+                <div class="dropdown-content">
+                    <p>بها : <span>{{43482.00 | currency}}</span></p>
+                </div>
+            </div>
+            <div class="section mat-elevation-z8 dropdown">
+                <h3>
+                    <img class="cIcon" [src] = "loadIcon('ETH' | uppercase)" alt="crypto icon" />
+                    اتریوم (ETH)
+                </h3>
+                <div class="dropdown-content">
+                    <p>بها : <span>{{3095.62 | currency}}</span></p>
+                </div>
+            </div>
+            <div class="section mat-elevation-z8 dropdown">
+                <h3>
+                    <img class="cIcon" [src] = "loadIcon('XRP' | uppercase)" alt="crypto icon" />
+                    ریپل (XRP) 
+                </h3>
+                <div class="dropdown-content">
+                    <p>بها : <span>{{0.84 | currency}}</span></p>
+                </div>
+            </div>
+            <div class="section mat-elevation-z8 dropdown">
+                <h3>
+                    <img class="cIcon" [src] = "loadIcon('LTC' | uppercase)" alt="crypto icon" />
+                    لایت کوین (LTC)
+                </h3>
+                <div class="dropdown-content">
+                    <p>بها : <span>{{133.48 | currency}}</span></p>
+                </div>
+            </div>
+            <div class="section mat-elevation-z8 dropdown">
+                <h3>
+                    <img class="cIcon" [src] = "loadIcon('USDT' | uppercase)" alt="crypto icon" />
+                    تتر (USDT)
+                </h3>
+                <div class="dropdown-content">
+                    <p>بها : <span>{{1.00 | currency}}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-crypto-list></app-crypto-list>
+    </div>
+</div>

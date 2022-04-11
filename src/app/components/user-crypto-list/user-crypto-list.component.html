@@ -1,33 +1,35 @@
-<div class="tableContainer">
-    <h1 class="mainTitle">لیست رمز ارزهای کاربر {{userName}}</h1>
-    <div *ngIf="userCoinsData">
-        <table mat-table [dataSource]="transformedBody" class="mat-elevation-z8">
-            <ng-container matColumnDef="icons">
-                <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let item">
-                    <img class="cryptoIcon" [src] = "loadIcon(item | uppercase)" alt="crypto icon" />
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="symbol">
-                <th mat-header-cell *matHeaderCellDef> نماد </th>
-                <td mat-cell *matCellDef="let item"> {{item}} </td>
-            </ng-container>
-            <ng-container matColumnDef="coinAmount">
-                <th mat-header-cell *matHeaderCellDef>مقدار رمز ارز</th>
-                <td mat-cell *matCellDef="let item"> {{userCoinsData[item].getCoin }}</td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>  
-    </div> 
-</div>
-<div *ngIf="isLoading" class="isLoadingStyle">
-        <mat-progress-spinner mode="indeterminate" [diameter]="60"></mat-progress-spinner>
-</div>
+<div class="mainDiv mat-elevation-z8">
+    <h1 class="mainTitle ">لیست رمز ارزهای کاربر {{userName}}</h1>
+    <div class="tableContainer">
+        <div *ngIf="userCoinsData">
+            <table mat-table [dataSource]="transformedBody" class="mat-elevation-z8">
+                <ng-container matColumnDef="icons">
+                    <th mat-header-cell *matHeaderCellDef>آیکون</th>
+                    <td mat-cell *matCellDef="let item">
+                        <img class="cryptoIcon" [src] = "loadIcon(item | uppercase)" alt="crypto icon" />
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="symbol">
+                    <th mat-header-cell *matHeaderCellDef> نماد </th>
+                    <td mat-cell *matCellDef="let item"> {{item}} </td>
+                </ng-container>
+                <ng-container matColumnDef="coinAmount">
+                    <th mat-header-cell *matHeaderCellDef>مقدار رمز ارز</th>
+                    <td mat-cell *matCellDef="let item"> {{userCoinsData[item].getCoin }}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>  
+        </div> 
+    </div>
+    <div *ngIf="isLoading" class="isLoadingStyle">
+            <mat-progress-spinner mode="indeterminate" [diameter]="60"></mat-progress-spinner>
+    </div>
 
-<div *ngIf="isLoading" class="noRecordError">
-	<p class="alertStyle">
-        <mat-icon inline="true">warning</mat-icon>
-        داده ای یافت نشد.
-	</p>
+    <div *ngIf="isLoading" class="noRecordError">
+        <p class="alertStyle">
+            <mat-icon inline="true">warning</mat-icon>
+            داده ای یافت نشد.
+        </p>
+    </div>
 </div>

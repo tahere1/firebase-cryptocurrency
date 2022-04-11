@@ -1,8 +1,8 @@
 table
 { 
-    width: 100%; 
+    width: 100%;
+
     text-align: center; 
-    border: 3px solid black;
 }
 th.mat-header-cell { 
     background-color:white;
@@ -23,7 +23,8 @@ td {
 }
 .tableContainer{
     overflow-x: auto;
-    overflow-y : hidden;
+    overflow-y : auto;
+    max-height: 400px !important;
 }
 
 tr:nth-of-type(odd) { 

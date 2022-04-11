@@ -2,7 +2,6 @@ table
 { 
     width: 100%; 
     text-align: center; 
-    border: 3px solid black;
 }
 
 th.mat-header-cell { 
@@ -24,7 +23,8 @@ td {
 }
 
 .myButton{
-    background-color: #08583b;
+    /* background-color: #08583b; */
+    background-color: rgb(2, 2, 65);
     color: white;
     font-size: calc(0.5em + 0.5vw);
 }

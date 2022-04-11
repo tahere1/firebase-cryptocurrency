@@ -3,15 +3,17 @@ span {
     color: black;
 }
 .price{ 
-    color: #11704d;
+    color: #251379;
     font-weight: bolder;
 }
 mat-card-header{
     padding: 1vw;
+    margin: 1vw;
     color: black;
-    border: 6px solid #08583b;
-    border-bottom: 6px double #08583b;
-    border-right: 6px double #08583b;
+    float: right;
+    width: 97.5%;
+    height: auto;
+    background-image: linear-gradient(to left,white 1% ,#2b3e68 50%);
 }
 mat-card-title{
     font-size: calc(0.6em + 1vw) !important;

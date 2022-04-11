@@ -1,6 +1,6 @@
 .mat-dialog-title{
-    background-color: #cee0c9;
-    color: black;    
+    background-color: rgb(72, 75, 102);
+    color: white;    
     padding: 1vw;
     font-size: calc(0.8em + 0.5vw);
     text-align: center;
@@ -19,7 +19,7 @@
     margin-left:30%;
     margin-right:30%;
     border-radius: 5px;
-    background-color: #d5e9d0;
-    color: black;
+    background-color: rgb(91, 95, 129);
+    color: white;
     font-size: calc(0.6em + 0.5vw);
 }

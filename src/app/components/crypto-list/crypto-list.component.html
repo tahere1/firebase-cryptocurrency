@@ -1,5 +1,8 @@
 <div class="tableContainer">
-<h1 class="mainTitle">لیست رمز ارزها</h1>
+	<h1 class="mainTitle blueColor">
+		لیست رمز ارزها
+	</h1>
+
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" 
 	matSort #empTbSort="matSort" (matSortChange)="sortData(dataSource)">
 		<ng-container matColumnDef="symbol">
@@ -38,6 +41,7 @@
 		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 	</table>
+
 </div>
 <div *ngIf="isLoading" class="isLoadingStyle">
   <mat-progress-spinner mode="indeterminate" [diameter]="60"></mat-progress-spinner>

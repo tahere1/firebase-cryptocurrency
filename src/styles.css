@@ -1,4 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'animate.css';
 
 @font-face {
     font-family: 'Yekan';
@@ -17,32 +18,53 @@ html, body {
 body { 
     margin-bottom: 5% !important;
     min-height: 100vh;
-    /* background-color: #d5e9d0; */
-    background: url(assets/image/crypto-bg.jpg);
-    background-repeat: repeat;
-    background-position: right top;
-    background-attachment: scroll;
+    background: url(src/assets/image/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .material-icons{
   font-family: 'Material Icons' !important;
 }
-
+.mainDiv{
+  padding: 2% !important;
+  margin: 2% !important;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
 .mainTitle{
   font-size: calc(1em + 1vw) !important;
-  line-height: calc(1em + 0.5vw) !important;
+  line-height: calc(2em + 2vw) !important;
   padding: 1vw; 
-  margin: 1vw;
-  background-color: #08583b;
-  border: 9px double white; 
-  color: white; 
-  border-radius: 10px;
+  background-color: rgb(2, 2, 65);
   text-align: center;
+  position: relative;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 50% / 10%;
+  color: white;
+  text-indent: .1em;
 }
+
+.mainTitle:before {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  right: -5%;
+  left: -5%;
+  background: inherit;
+  border-radius: 5% / 50%;
+}
+
 .positionRight{
   text-align: right;
 }
 .FullWidth{
   width: 100%;
+}
+.w50{
+  width: 50%;
 }
 .w70{
   width: 70%;
@@ -54,28 +76,31 @@ body {
   width: 90%;
   padding: 3% !important;
 }
+.myForm{
+    width: 95%;
+    padding: 0 3%;
+}
 .mySubmitBtn{
-  background-color: #08583b;
+  background-color: rgb(2, 2, 65);
   color: white;
 }
 .mySubmitBtn:disabled,
 .mySubmitBtn[disabled]{
-background-color: #18a370;
+background-color: rgb(57, 57, 133);
 color: white !important;
 }
 
 .noRecordError{
   font-size: calc(0.5em + 0.5vw);
   padding: 5px;
-  background-color: white;
-
+  background-color: whitesmoke;
 }
 
 .isLoadingStyle{
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  background: white;
+  background: whitesmoke;
   margin: 5px !important;
 }
 
@@ -95,11 +120,21 @@ color: white !important;
   font-size: calc(0.6em + 0.5vw) !important;
 }
 .alertStyle{
-  background-color: #d5e9d0;
+  background-color: #a1bbd8;
   line-height: calc(1em + 1.5vw) !important;
   padding: 10px;
   border-radius: 10px;
-  border:2px solid rgb(88, 88, 88);
   font-weight: bold;
   font-size: calc(0.7em + 0.5vw);
 }
+
+.blueColor{
+  background-image: linear-gradient(to left,rgb(211, 211, 211) 1% ,#07318b 50% ,rgb(211, 211, 211));
+}
+
+table{
+  padding: 1vw !important;
+}
+
+
+

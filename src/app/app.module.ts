@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 // Components
 import { AppComponent } from './app.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 import { CryptoListComponent } from './components/crypto-list/crypto-list.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
@@ -35,16 +36,20 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 // Sate Management:
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+// import { UserCreateLoginComponent } from './components/user-create-login/user-create-login.component';
 
 
 const routes: Routes = [
-  { path: '', component: CryptoListComponent },
-  { path: 'home', component: CryptoListComponent },
+  { path: '', component: HomepageComponent },
+  { path: 'home', component: HomepageComponent },
   { path: 'register', component: CreateUserComponent },
   { path: 'login', component: LoginUserComponent },
+  { path: 'crypto-list', component: CryptoListComponent },
   { path: 'transactions-list', component: TransactionsListComponent},
   { path: 'buy-coin', component: CoinBuyComponent },
   { path: 'user-crypto-list', component: UserCryptoListComponent },
+  // { path: 'user-new', component:  UserCreateLoginComponent },
+
 ];
 
 @NgModule({
@@ -59,7 +64,9 @@ const routes: Routes = [
     UserCryptoListComponent,
     DialogBodyComponent,
     DialogSellComponent,
-    DialogBuyComponent
+    DialogBuyComponent,
+    HomepageComponent,
+    // UserCreateLoginComponent
   ],
   imports: [
     BrowserModule,
