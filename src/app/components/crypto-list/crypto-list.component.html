@@ -1,9 +1,14 @@
+<div class="TitleStyle">
+	<span>لیست رمز ارزها</span>
+</div>
 <div class="tableContainer">
-	<h1 class="mainTitle blueColor">
-		لیست رمز ارزها
-	</h1>
-
-	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" 
+	<div class="FullWidth" >
+		<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons>
+  		</mat-paginator>
+	</div>
+	
+	<table mat-table [dataSource]="dataSource"  
 	matSort #empTbSort="matSort" (matSortChange)="sortData(dataSource)">
 		<ng-container matColumnDef="symbol">
 			<th mat-header-cell *matHeaderCellDef> نماد </th>
@@ -41,8 +46,10 @@
 		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 	</table>
+	
 
 </div>
+
 <div *ngIf="isLoading" class="isLoadingStyle">
   <mat-progress-spinner mode="indeterminate" [diameter]="60"></mat-progress-spinner>
 </div>

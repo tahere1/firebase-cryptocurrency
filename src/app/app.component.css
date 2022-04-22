@@ -1,10 +1,16 @@
 /* ---------------- toolbar css------------------------ */
+.flexExpand {
+  flex: 1 1 auto;
+}
+.app-toolbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
 mat-toolbar{
   background-color: rgb(2, 2, 65);
   color: white;
-}
-mat-toolbar a{
-  margin: 5px !important;
 }
 
 /* ------------------- menu------------------------------ */
@@ -28,18 +34,29 @@ mat-toolbar a{
 
 .section {
   text-align: center;
-  font-size: calc(0.7em + 0.5vw) !important;
   display: table-cell;
   padding: 2vw;
 }
+.section h2{
+  font-size: calc(0.5em + 1vw) !important;
+  font-weight: bolder;
+  color: white;
+}
+.section p{
+  font-size: calc(0.5em + 0.7vw) !important;
+  font-weight: bolder;
+}
+.section a{
+  font-size: calc(0.5em + 0.6vw) !important;
+  line-height: calc(1em + 1vw);
+}
 
-@media (max-width: 768px) { 
+@media (max-width: 960px) { 
   .section {
     display: block;
-    
   }
 }
-/* ---------------------- BTC Icon (footer) ----------------------------- */
+/* ---------------------- crypto Icon (footer) ----------------------------- */
 .BTCIcon{
   width: calc(2em +2vw);
   height: calc(2em + 2vw);
@@ -47,3 +64,13 @@ mat-toolbar a{
   display:inline-block;
   vertical-align:middle;
 }
+/* -------------------------------------------------------------------- */
+.LoadingStyle ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #000000;
+}
+/* -------------------------------------------------------------------- */
+mat-expansion-panel{
+  background-color: rgb(2, 2, 65);
+  color: white;  
+}
+

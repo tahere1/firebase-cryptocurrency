@@ -6,17 +6,21 @@
     margin-left:30%;
     margin-right:30%;
     font-size: calc(0.4em + 1vw) !important;
+    background-color: rgb(120, 120, 160);
 }
-.mat-card{
-    
-    min-height: 300px;
-    box-shadow: inset;
-    background: url(src/assets/image/login-bg.jpg);
-  }
-  .mat-card-title{
+
+.mySubmitBtn:disabled,
+.mySubmitBtn[disabled]{
+background-color: rgb(165, 165, 190);
+}
+.mat-card{ 
+    min-height: 350px;
     background-color: rgb(2, 2, 65);
     color: white;
-    text-align: center;
+  }
+  .mat-card-title{
+    color: white;
+    text-align: right;
     font-size: calc(1em + 1vw) !important;
     line-height:  calc(1.5em + 1.5vw);
     padding-right: calc(0.5em + 0.5vw);
@@ -25,3 +29,27 @@
 .bg{
   padding: 4vw !important;
 }
+/* ------------------------------------------------------------- */
+.userForm ::ng-deep .mat-focused{
+    /*change color of label*/
+    color: white !important;
+   }
+
+.userForm ::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+/* .userForm ::ng-deep .mat-form-field-ripple {
+  
+  color: white !important;
+} */
+.userForm ::ng-deep .mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+} 
+
+.userForm ::ng-deep .mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: white !important;
+}
+/* --------------------------------------------------------------------- */

@@ -1,7 +1,13 @@
+.alertConatiner{
+    margin: 0.5vw 2vw 4vw 2vw;
+    padding: 2vw 3vw 3vw 3vw;
+    background-color: white;
+    border-radius: 15px;
+}
+
 table
 { 
     width: 100%;
-
     text-align: center; 
 }
 th.mat-header-cell { 
@@ -24,7 +30,8 @@ td {
 .tableContainer{
     overflow-x: auto;
     overflow-y : auto;
-    max-height: 400px !important;
+    margin: 1vw 3vw 2vw 3vw;
+    padding-bottom: 2vw;
 }
 
 tr:nth-of-type(odd) { 
@@ -41,5 +48,14 @@ td, th {
 }
 .isLoadingStyle ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #000000;
-}
 
+}
+.isLoadingStyle{
+    background-color: white;
+}
+.noRecordError{
+    background-color: white;
+}
+.alertStyle{
+    margin-top: 3vw;
+}

@@ -51,18 +51,21 @@ export class CreateUserComponent implements OnInit {
                     isLogedIn: true
                   }));
                 this.userQuery.saveToLocalStorage();
-                this.userForm.reset();
+                
 
                 const dialogConfig = new MatDialogConfig();
+                const myUser = this.userForm.value.username;
                 dialogConfig.data = { 
                   dialogTitle: "ثبت حساب کاربری",
-                  dialogContent : "کاربر" + this.userForm.value.username +
+                  dialogContent : "کاربر" + " " + this.userForm.value.username + " " +
                    "عزیز حساب کاربری شما با موفقیت ثبت گردید.",
                    dialogAccept: true
                 };
                 dialogConfig.direction = 'rtl';
                 dialogConfig.width="50%";
                 this.dialog.open(DialogBodyComponent, dialogConfig);
+
+                this.userForm.reset();
             }
             else {
               const dialogConfig = new MatDialogConfig();

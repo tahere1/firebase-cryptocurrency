@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   title = 'crypto-firebase';
   username:any;
   userisLoggedIn:boolean = false;
+  //Loader variable default true before page load
+  loader = true;
 
   constructor(private userStore: UserStore, private userQuery: UserQuery) {}
 
@@ -27,7 +29,13 @@ export class AppComponent implements OnInit {
         var userData = JSON.parse(x);
         this.username =  userData.username;
         this.userisLoggedIn = userData.isLogedIn;
-      } 
+      }
+
+    //Loader variable set false after page load
+    setTimeout(()=>{                           
+      this.loader = false;
+      }, 2000);
+      
   }
   logout(){
     this.userStore.reset();
@@ -39,5 +47,8 @@ export class AppComponent implements OnInit {
   loadIcon(cryptoName:string){
     return icons[cryptoName]?.icon;
   }
+
+  
+
 
 }

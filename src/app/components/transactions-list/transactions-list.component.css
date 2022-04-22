@@ -1,47 +1,88 @@
-.list-header{
-    margin-top:calc(0.1em + 1vw) ;
-    font-size: calc(0.8em + 1vw) !important;
-    line-height: calc(1em + 1.5vw) !important;
-    padding: 1.5vw; 
-    float: right;
-    width: 97.5%;
-    height: auto;
-    background-image: linear-gradient(to left,white 1% ,#2b3e68 50%);
+.main{
+  padding: 2% !important;
 }
 .sellMargin{
     margin-top:calc(2em + 1.5vw) ;
 }
  /* --------------------------- search ------------------------------- */
- .searchBox{
-  text-align: right;
-  width: 50%;
+ .center{
+  display: flex;
+  justify-content: center;
  }
- .FullWidthSearchBox{
-   width: 100%;
- }
- .responsiveText{
-    font-weight: bold;
-    font-size: calc(0.7em + 0.5vw);
- }
- .filterStyle{
-    background-color: rgb(246, 248, 253);
-    padding-right: 3% !important;
-    
+ .searchContainer {
+  width: 85%;
+  background-color: rgb(2, 2, 65);
+  color: white;
+  display: flex;
+  position: relative;
+  margin-top: 2vh; 
+  margin-bottom: 1vh;  
+  text-align: center;
+  border-radius: 15px;
 }
- /* --------------------------------------------------------------- */
- .mainContainer{
-   padding-top: 2%;
+.child{
+  flex: 1;
+}
+.child p {
+  text-align: center;
+  line-height: 15vh;
+  font-size: calc(0.5em + 0.5vw);
+  padding: auto;
+}
+ .responsiveText{
+  font-weight: bold;
+  font-size: calc(0.7em + 0.5vw);
+}
+.FullWidthSearchBox{
+  width: 95%;
+  text-align: right;
+  color: white;
+}
+ .searchStyle{
+  text-align: right;
+  width: 95%;
+  color: white;
+  /* background-color: white; */
+  height: auto;
+  padding: 1vw;
+  border-radius: 15px;
  }
+
+ .searchStyle ::ng-deep .mat-focused{
+  /*change color of label*/
+  color: white !important;
+ }
+
+.searchStyle ::ng-deep .mat-form-field-label {
+/*change color of label*/
+color: white !important;
+}
+
+.searchStyle ::ng-deep .mat-form-field-underline {
+/*change color of underline*/
+background-color: white !important;
+} 
+
+.searchStyle ::ng-deep .mat-form-field-ripple {
+/*change color of underline when focused*/
+background-color: white !important;
+}
+
+input::placeholder {
+  color: white;
+}
 /* ---------------------- table ------------------------------------------ */
 table
 { 
   padding: 3px;
   width: 100%; 
   text-align: center; 
+  /* background-color:rgb(246, 248, 253); */
 }
 th.mat-header-cell { 
    text-align: center !important;
    background-color:white;
+   /* background-color: rgb(246, 248, 253); */
    color: black;
    border-bottom: 2px solid black;
    font-weight: bold;
@@ -56,9 +97,10 @@ td {
 
 .table-container {
   width: 100%;
-  max-height: 250px !important;
+  max-height: 500px !important;
   overflow-x: auto;
   overflow-y : auto;
+  border-top-left-radius: 15px;
 }
 
 tr:nth-of-type(odd) { 
@@ -72,4 +114,5 @@ td, th {
 .isLoadingStyle ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #000000;
 }
+/* ---------------------------------------------------------------------- */
 

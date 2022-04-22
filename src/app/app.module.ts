@@ -23,6 +23,7 @@ import { DatePipe } from '@angular/common';
 // Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './Module/angular-material.module';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 // import {MatDialogModule} from "@angular/material/dialog";
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -86,7 +87,10 @@ const routes: Routes = [
     // akita :
     environment.production ? [] : AkitaNgDevtools.forRoot(),  
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    MatPaginatorIntl
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [DialogBodyComponent]

@@ -1,15 +1,24 @@
-
-<div>
-  <mat-toolbar class="mat-elevation-z8">
-    <div fxShow="true" fxHide.lt-md="true">
-      <a mat-button routerLink="/home"><mat-icon>home</mat-icon>&nbsp;صفحه اصلی</a>
-      <a mat-button routerLink="/transactions-list"><mat-icon>list</mat-icon>&nbsp;لیست معاملات</a>
-      <a mat-button *ngIf="!userisLoggedIn" routerLink="/login"><mat-icon>account_box</mat-icon>&nbsp;ورود به حساب کاربری</a>
-      <a mat-button *ngIf="userisLoggedIn" (click) = "logout()" href="/"><mat-icon>exit_to_app</mat-icon>&nbsp;خروج از حساب کاربری</a>
-      <a mat-button *ngIf="!userisLoggedIn" routerLink="/register"><mat-icon>person_add</mat-icon>&nbsp;ثبت نام در سایت</a>
-      <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list"><mat-icon>person</mat-icon>&nbsp;کاربر : {{username}}</a>
+<div *ngIf="loader" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+    <div class="LoadingStyle" fxLayoutAlign="center center">
+      <mat-progress-spinner mode="indeterminate" [diameter]="50"></mat-progress-spinner>
     </div>
-    <div dir="rtl" fxShow="true" fxHide.gt-sm="true">
+</div>
+
+<div *ngIf="!loader">
+  <mat-toolbar class="mat-elevation-z8 app-toolbar">
+        <span fxShow="true" fxHide.lt-md="true">
+          <a mat-button routerLink="/home"><mat-icon>home</mat-icon>&nbsp;صفحه اصلی</a>
+          <a mat-button routerLink="/transactions-list"><mat-icon>list</mat-icon>&nbsp;لیست معاملات</a>
+        </span>
+        <span class="flexExpand" fxShow="true" fxHide.lt-md="true"></span>
+        <span fxShow="true" fxHide.lt-md="true">
+          <a mat-button *ngIf="!userisLoggedIn" routerLink="/register"><mat-icon>person_add</mat-icon>&nbsp;ثبت نام</a>
+          <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list"><mat-icon>person</mat-icon>&nbsp;کاربر : {{username}}</a>
+          <a mat-button *ngIf="!userisLoggedIn" routerLink="/login"><mat-icon>account_box</mat-icon>&nbsp;ورود</a>
+          <a mat-button *ngIf="userisLoggedIn" (click) = "logout()" href="/"><mat-icon>exit_to_app</mat-icon>&nbsp;خروج</a>
+        </span>
+<!-- --------------------------------------------------------------------------------------- -->
+      <span dir="rtl" fxShow="true" fxHide.gt-sm="true">
         <button mat-icon-button [matMenuTriggerFor]="menu" class="MenuFont">
           <mat-icon>more_vert</mat-icon>
           منو
@@ -23,24 +32,18 @@
             <mat-icon>list</mat-icon>
             لیست معاملات
           </button>
-          <button mat-menu-item *ngIf="!userisLoggedIn" routerLink="/login" class="MenuFont">
-            <mat-icon>account_box</mat-icon>
-            ورود به حساب
-          </button>
-          <button mat-menu-item *ngIf="userisLoggedIn" (click) = "logout()" routerLink="/home" class="MenuFont">
-            <mat-icon>exit_to_app</mat-icon>
-            خروج از حساب
-          </button>
           <button mat-menu-item *ngIf="!userisLoggedIn" routerLink="/register" class="MenuFont">
             <mat-icon>person_add</mat-icon>
             ثبت نام
           </button>
-          <button mat-menu-item  *ngIf="userisLoggedIn" routerLink="/user-crypto-list" class="MenuFont">
-            <mat-icon>person</mat-icon>
-            کاربر {{username}}
-          </button>
         </mat-menu>
-    </div>
+      </span>
+      <span class="flexExpand" dir="rtl" fxShow="true" fxHide.gt-sm="true"></span>
+      <span dir="rtl" fxShow="true" fxHide.gt-sm="true">
+        <a mat-button *ngIf="userisLoggedIn" routerLink="/user-crypto-list"><mat-icon>person</mat-icon>&nbsp;کاربر : {{username}}</a>
+        <a mat-button *ngIf="!userisLoggedIn" routerLink="/login"><mat-icon>account_box</mat-icon>&nbsp;ورود</a>
+        <a mat-button *ngIf="userisLoggedIn" (click) = "logout()" href="/"><mat-icon>exit_to_app</mat-icon>&nbsp;خروج</a>
+      </span>
   </mat-toolbar>
 
 
@@ -48,7 +51,7 @@
       <router-outlet></router-outlet>
     </div>
 
-  <div class="main-footer">
+  <div class="main-footer" fxShow="true" fxHide.lt-md="true">
     <div class="section">
       <img class="BTCIcon" [src] = "loadIcon('BTC' | uppercase)" alt="crypto icon" />
       <img class="BTCIcon" [src] = "loadIcon('ETH' | uppercase)" alt="crypto icon" />
@@ -56,7 +59,6 @@
       <p>خرید ارز دیجیتال، به صورت ساده، سریع، حرفه ای و امن</p>
     </div>
     <div class="section">
-      
       <h2>لینک های مرتبط</h2>
       <a mat-button href="/">صرافی های داخلی ارزهای دیجیتال</a><br>
       <a mat-button href="/">صرافی های جهانی ارزهای دیجیتال</a><br>
@@ -68,6 +70,42 @@
       <a mat-button  href="/">سوالات متداول</a><br>
       <a mat-button  href="/">تماس با پشتیبانی</a><br>
       <a mat-button  href="/">راهنمای امنیت حساب کاربری</a><br>
+    </div>
+  </div>
+
+
+  <div class="main-footer" fxShow="true" fxHide.gt-sm="true" >
+    <div class="section">
+        <img class="BTCIcon" [src] = "loadIcon('BTC' | uppercase)" alt="crypto icon" />
+        <img class="BTCIcon" [src] = "loadIcon('ETH' | uppercase)" alt="crypto icon" />
+        <img class="BTCIcon" [src] = "loadIcon('BNB' | uppercase)" alt="crypto icon" />
+        <p>خرید ارز دیجیتال، به صورت ساده، سریع، حرفه ای و امن</p>
+    </div>
+    <div class="section">
+      <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2>لینک های مرتبط</h2>  
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-button href="/">صرافی های داخلی ارزهای دیجیتال</a><br>
+          <a mat-button href="/">صرافی های جهانی ارزهای دیجیتال</a><br>
+          <a mat-button href="/">مقایسه بازارهای داخلی رمزارزها</a><br>
+          <a mat-button href="/">مقایسه بازارهای جهانی رمزارزها</a><br>
+      </mat-expansion-panel>
+    </div>
+    <div class="section">
+      <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2>راهنما و پشتیبانی</h2> 
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-button  href="/">سوالات متداول</a><br>
+          <a mat-button  href="/">تماس با پشتیبانی</a><br>
+          <a mat-button  href="/">راهنمای امنیت حساب کاربری</a><br>
+      </mat-expansion-panel>
+
     </div>
   </div>
   

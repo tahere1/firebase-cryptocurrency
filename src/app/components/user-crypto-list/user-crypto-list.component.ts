@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewChild } from '@angular/core';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { UserQuery } from 'src/app/store/user.query';
-import * as icons from 'base64-cryptocurrency-icons/build/index.js'
+import * as icons from 'base64-cryptocurrency-icons/build/index.js';
 
 
 @Component({
@@ -16,7 +16,10 @@ export class UserCryptoListComponent implements OnInit {
   userName :string = '';
   userCoinsData :any;
   isLoading: boolean = true;
-  constructor(public firebaseService: FirebaseService,private userQuery: UserQuery) {
+  
+
+  constructor(public firebaseService: FirebaseService,
+    private userQuery: UserQuery) {
     // get username:
     this.userQuery.multiProps$.subscribe((result:any) => {
       this.userName = result.username;
@@ -35,7 +38,7 @@ export class UserCryptoListComponent implements OnInit {
       );
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {  }
 
   get transformedBody() {
     return Object.keys(this.userCoinsData);

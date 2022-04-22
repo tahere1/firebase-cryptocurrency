@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import * as icons from 'base64-cryptocurrency-icons/build/index.js'
 
 
@@ -20,19 +21,31 @@ export class TransactionsListComponent implements OnInit {
   isLoadingSell: boolean = true;
   isLoadingBuy: boolean = true;
 
-  constructor(public firebaseService: FirebaseService) { 
+  @ViewChild('buyPaginator') buyPaginator: MatPaginator | undefined;
+  @ViewChild('sellPaginator') sellPaginator: MatPaginator | undefined;
+
+  constructor(public firebaseService: FirebaseService ,
+    public _MatPaginatorIntl: MatPaginatorIntl) { 
     this.firebaseService.tradeList("buy").subscribe((result) => {
       this.isLoadingBuy = false;
       this.dataSourceBuy = new MatTableDataSource(result);
+      this.dataSourceBuy.paginator = this.buyPaginator;
     });
     this.firebaseService.tradeList("sell").subscribe((result) => {
       this.isLoadingSell = false;
       this.dataSourceSell = new MatTableDataSource(result);
+      this.dataSourceSell.paginator = this.sellPaginator;
     });
     
   }
 
   ngOnInit(): void {
+    this._MatPaginatorIntl.firstPageLabel = 'اولین صفحه';
+    this._MatPaginatorIntl.itemsPerPageLabel = 'تعداد آیتم';
+    this._MatPaginatorIntl.lastPageLabel = 'اخرین صفحه';
+    this._MatPaginatorIntl.nextPageLabel = 'صفحه بعدی';
+    this._MatPaginatorIntl.previousPageLabel = 'صفحه قبلی';
+    
     // this.dataSourceSell.filterPredicate = function(data:any|string, filter: string): boolean {
     //   return data.symbol.toLowerCase().includes(filter) === filter;
     // };

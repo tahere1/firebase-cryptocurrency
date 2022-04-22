@@ -23,7 +23,6 @@ td {
 }
 
 .myButton{
-    /* background-color: #08583b; */
     background-color: rgb(2, 2, 65);
     color: white;
     font-size: calc(0.5em + 0.5vw);
@@ -31,6 +30,8 @@ td {
 .tableContainer{
     overflow-x: auto;
     overflow-y : hidden;
+    background-color: white;
+    border-top-left-radius: 15px;
 }
 tr:nth-of-type(odd) { 
     background: #dce4da;
@@ -56,3 +57,4 @@ button{
     display:flex;
     justify-content:center;
 }
+

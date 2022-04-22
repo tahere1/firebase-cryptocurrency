@@ -18,22 +18,21 @@ html, body {
 body { 
     margin-bottom: 5% !important;
     min-height: 100vh;
-    background: url(src/assets/image/login-bg.jpg);
+    background-color: whitesmoke;
+
+    /* background: url(src/assets/image/login-bg.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; */
 }
 .material-icons{
   font-family: 'Material Icons' !important;
 }
 .mainDiv{
   padding: 2% !important;
-  margin: 2% !important;
-  background-color: whitesmoke;
-  border-radius: 10px;
 }
-.mainTitle{
+/* .mainTitle{
   font-size: calc(1em + 1vw) !important;
   line-height: calc(2em + 2vw) !important;
   padding: 1vw; 
@@ -45,9 +44,9 @@ body {
   border-radius: 50% / 10%;
   color: white;
   text-indent: .1em;
-}
+} */
 
-.mainTitle:before {
+/* .mainTitle:before {
   position: absolute;
   top: 10%;
   bottom: 10%;
@@ -55,7 +54,40 @@ body {
   left: -5%;
   background: inherit;
   border-radius: 5% / 50%;
+} */
+
+
+.TitleStyle{
+  margin-top: 3vw ;
+  padding-bottom: 1vw;
 }
+.TitleStyle span{
+  color: black;
+  background-color: white;
+  font-size: calc(0.7em + 1vw) !important;
+  padding: 0.5vw 2vw 2vw 2vw;
+  margin-bottom: 0 !important;
+  /* text-align: center; */
+  justify-content: center;
+  height: auto;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.myTitle{
+  color: black;
+  background-color: white;
+  font-size: calc(1em + 1vw) !important;
+  padding: 1vw 2vw 0.5vw 2vw;
+  text-align: right;
+  height: auto;
+}
+/* .headerStyle{
+  font-size: calc(1em + 1vw) !important;
+  line-height: calc(2em + 2vw) !important;
+  padding: 1vw; 
+  margin: 20px 0;
+} */
 
 .positionRight{
   text-align: right;
@@ -93,14 +125,12 @@ color: white !important;
 .noRecordError{
   font-size: calc(0.5em + 0.5vw);
   padding: 5px;
-  background-color: whitesmoke;
 }
 
 .isLoadingStyle{
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  background: whitesmoke;
   margin: 5px !important;
 }
 
@@ -128,13 +158,15 @@ color: white !important;
   font-size: calc(0.7em + 0.5vw);
 }
 
-.blueColor{
+/* .blueColor{
   background-image: linear-gradient(to left,rgb(211, 211, 211) 1% ,#07318b 50% ,rgb(211, 211, 211));
-}
+} */
 
 table{
   padding: 1vw !important;
 }
+
+
 
 
 
