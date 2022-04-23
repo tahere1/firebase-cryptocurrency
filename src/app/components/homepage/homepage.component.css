@@ -1,23 +1,48 @@
 /* ---------------------- title ----------------------------- */
+.ImageContainer {
+  background-image: url("src/assets/image/digital-currency.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  width: 96%;
+  height: 60vh;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: white;
+  padding: 2vw;
+  margin-top: 1vw;
+  text-align: center;
+}
+
 .title{
-  width: 45%;
+  width: 55%;
   line-height: 0.9vw;
-  padding: 3vw;
+  padding: 2vw;
   position: relative;
   color: white;
   text-align: justify;
-  text-justify: inter-word;
+  /* text-justify: inter-word; */
 }
 .title h1 {
-  padding-right: 3vw;
-  font-size: calc(1em + 1vw);
+  padding-top: 10px;
+  padding-right: 2vw;
+  font-size: calc(0.8em + 0.8vw);
 }
 .title p{
-  padding-right: 3.5vw;
-  font-size: calc(0.8em + 0.5vw);
+  padding-right: 2.5vw;
+  font-size: calc(0.5em + 0.6vw);
   line-height: calc(1em + 1vw);
 }
-
+/* ---------------------------------------------------------------------- */
+.container {
+  position: relative; 
+  margin-bottom: 5vw;  
+}
+.box{
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
 /* -------------------------- important crypto box --------------------------------- */
 mat-panel-title{
   font-size: calc(0.6em + 0.5vw);  
@@ -69,37 +94,4 @@ mat-expansion-panel p {
   display:inline-block;
   vertical-align:middle;
 }
-/* ---------------------------------------------------------------------- */
 
-.ImageContainer {
-  margin-top: 4vh;
-  margin-bottom: 5vh;
-  position: absolute; 
-  height: auto;
-  min-height: 75vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: right;
-}
-
-.ImageContainer::before {    
-    content: "";
-    background-image: url("src/assets/image/digital-currency.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    z-index: -1;
-}
-.box{
-  margin-top:400px; 
-  position:relative;
-  padding-left: 2vw;
-  padding-right: 2vw;
-}
